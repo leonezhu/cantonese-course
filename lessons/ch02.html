@@ -3,487 +3,550 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>粵語速成 中級 — 第二課 體驗香港美食</title>
+<title>第2課 體驗香港美食 — 粵語速成 中級</title>
 <style>
 *{ margin:0;padding:0;box-sizing:border-box; }
-body{ font-family:"Noto Serif TC","Source Han Serif TC","PMingLiu",serif;background:#fdfdfd;color:#333;line-height:1.8; padding:40px 20px; }
-h1{ font-size:1.6em;text-align:center;margin-bottom:5px;color:#c0392b; }
+body{ font-family:"Noto Serif TC","Source Han Serif TC","PMingLiu",serif;background:#fdfdfd;color:#333;line-height:1.8; }
+.container{ max-width:800px;margin:0 auto;padding:20px; }
+h1{ font-size:1.8em;text-align:center;margin:30px 0 10px; }
 .subtitle{ text-align:center;color:#888;margin-bottom:30px;font-size:0.9em; }
-nav{ text-align:center;margin-bottom:30px;padding:10px; }
-nav a{ margin:0 10px;color:#c0392b;text-decoration:none; }
-nav a:hover{ text-decoration:underline; }
-section{ margin-bottom:40px; }
-.section-title{ font-size:1.3em;color:#c0392b;border-bottom:2px solid #c0392b;padding-bottom:5px;margin-bottom:15px; }
-.subsection-title{ font-size:1.1em;color:#e74c3c;margin:20px 0 10px; }
-.audio-bar{ margin:15px 0;padding:10px;background:#f5f5f5;border-radius:5px;text-align:center; }
-.audio-bar audio{ max-width:100%; }
-.text-block{ margin-bottom:15px;padding-left:15px;border-left:3px solid #ddd; }
-.pinyin{ color:#777;font-size:0.9em; }
-.vocab-table{ width:100%;border-collapse:collapse;margin:10px 0; }
-.vocab-table td{ padding:6px 10px;border-bottom:1px solid #eee;vertical-align:top; }
+.section{ margin:40px 0; }
+.section-title{ font-size:1.4em;border-bottom:2px solid #ddd;padding-bottom:8px;margin-bottom:20px; }
+.dialogue-block{ margin:20px 0;padding:15px;background:#fafafa;border-radius:8px; }
+.speaker{ font-weight:bold;color:#c0392b;margin-bottom:8px;font-size:1.1em; }
+.line{ display:flex;gap:20px;margin:8px 0;flex-wrap:wrap; }
+.pinyin{ flex:1;min-width:250px;color:#666;font-size:0.95em; }
+.cantonese{ flex:1;min-width:250px;font-size:1.1em; }
+.mandarin{ flex:1;min-width:250px;color:#888;font-size:0.95em; }
+.audio-bar{ margin:15px 0;display:flex;align-items:center;gap:10px; }
+.audio-bar label{ font-weight:bold;color:#555;white-space:nowrap; }
+.audio-bar audio{ flex:1;height:40px; }
+.vocab-table{ width:100%;border-collapse:collapse; }
+.vocab-table th{ background:#eee;padding:10px;text-align:left;font-weight:bold; }
+.vocab-table td{ padding:8px 10px;border-bottom:1px solid #eee; }
 .vocab-table tr:hover{ background:#f9f9f9; }
-.vocab-num{ color:#c0392b;font-weight:bold;width:30px; }
-.vocab-cantonese{ font-weight:bold;white-space:nowrap;width:120px; }
-.vocab-meaning{ color:#555; }
-.phrase-row{ display:flex;gap:10px;margin:5px 0;padding:5px 0;border-bottom:1px dotted #eee; }
-.phrase-cantonese{ font-weight:bold;min-width:100px; }
-.phrase-pinyin{ color:#777;font-size:0.9em;min-width:150px; }
-.phrase-meaning{ color:#555; }
-.culture-note{ background:#fef9e7;padding:15px;border-radius:5px;margin:15px 0;border-left:4px solid #f39c12; }
-.culture-note h4{ color:#e67e22;margin-bottom:8px; }
-.dialogue{ margin:10px 0; }
-.dialogue-speaker{ font-weight:bold;color:#c0392b; }
-.footer{ text-align:center;margin-top:40px;color:#aaa;font-size:0.8em; }
+.word{ font-size:1.1em;font-weight:bold;color:#2c3e50; }
+.jyutping{ color:#888;font-size:0.9em; }
+.meaning{ color:#555; }
+.nav{ position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;padding:10px 0;z-index:100; }
+.nav a{ margin-right:15px;text-decoration:none;color:#666;font-size:0.9em; }
+.nav a:hover{ color:#c0392b; }
+footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8em; }
+.phonetic-table td{ padding:6px 10px;border-bottom:1px solid #eee; }
+.phonetic-table td:first-child{ font-weight:bold; }
+.directory-table{ width:100%;max-width:500px;margin:0 auto;border-collapse:collapse; }
+.directory-table th{ background:#eee;padding:12px;text-align:left;font-weight:bold; }
+.directory-table td{ padding:10px 12px;border-bottom:1px solid #eee; }
+.directory-table tr:hover{ background:#f9f9f9; }
+.directory-table a{ color:#2c3e50;text-decoration:none;font-weight:bold; }
+.directory-table a:hover{ color:#c0392b; }
+#global-stop{ position:fixed;bottom:20px;right:20px;background:#c0392b;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5em;cursor:pointer;z-index:9999;box-shadow:0 2px 10px rgba(0,0,0,0.3);display:none;align-items:center;justify-content:center; }
+#global-stop:hover{ background:#e74c3c; }
 </style>
+<script>
+(function(){
+  var audio=document.querySelectorAll('audio');
+  var btn=document.getElementById('global-stop');
+  var anyPlaying=false;
+  function updateBtn(){
+    anyPlaying=false;
+    audio.forEach(function(a){if(!a.paused){anyPlaying=true;}});
+    btn.style.display=anyPlaying?'flex':'none';
+  }
+  audio.forEach(function(a){a.addEventListener('play',updateBtn);a.addEventListener('pause',updateBtn);a.addEventListener('ended',updateBtn);});
+  btn.addEventListener('click',function(){
+    audio.forEach(function(a){a.pause();});
+  });
+  window.setInterval(updateBtn,500);
+  updateBtn();
+})();
+</script>
 </head>
 <body>
-<h1>粵語速成 中級</h1>
-<p class="subtitle">第二課 體驗香港美食</p>
-<nav>
-<a href="../index.html">← 課程目錄</a> |
-<a href="ch01.html">上一課</a> |
-<a href="ch03.html">下一課 →</a>
-</nav>
-
-<!-- 課文 -->
-<section>
-<h2 class="section-title">1 課文</h2>
-
-<div class="text-block">
-<p class="pinyin">Yèuhng Hiu làihjó Hèunggóng jouhyéh yihgng géi nihn laak.</p>
-<p>楊曉在香港做嘢已經幾年喇。</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Yèuhgwó ncíh mahn kéuih hái Hèunggóng deui måtyéh ge yanjeuhng jeui sām, kéuih yàtdíng wúih daap, "Hai 'sik'".</p>
-<p>如果你問佢係香港對乜嘢印象最深，佢一定會答「係『食』」。</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Dīmgáai né?</p>
-<p>點解呢？</p>
+<div class="container">
+<h1>第2課 體驗香港美食</h1>
+<p class="subtitle">粵語速成 中級教材</p>
+<div class="nav">
+  <a href="../index.html">目錄</a>
+  <a href="#lesson">課文</a>
+  <a href="#vocab">生詞</a>
+  <a href="#difficult">難讀字詞</a>
+  <a href="#extra">附加詞彙</a>
+  <a href="#phonetic">語音練習</a>
 </div>
 
-<div class="text-block">
-<p class="pinyin">Hái Hèunggóng, néih hàahngchéutgāi táihaah, sèiwāih dōu hóyh gindou sikhyeh ge deihfōng.</p>
-<p>喺香港，你行出街睇吓，四圍都可以見到食嘅地方。</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Daaih siu síksī tõngāai dōu haih.</p>
-<p>大小食肆通街都係。</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Saigai gokgwok ge méihsíhk dōu hóyh hái nidouh wandou, janhái bàau lòh maahn yáuh.</p>
-<p>世界各國嘅美食都可以喺呢度搵到，真係包羅萬有。</p>
+<!-- ======================== SECTION 1: 課文 ======================== -->
+<div class="section" id="lesson">
+  <div class="section-title">1 課文</div>
+  <div class="audio-bar"><label>🔊 全文朗讀：</label><audio controls preload="none"><source src="../audio/Lesson02_1.mp3" type="audio/mpeg"></audio></div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Yèuhng Hiu làihjó Hèunggóng jouhyéh yihgng géi nihn laak.</span></div>
+    <div class="line"><span class="cantonese">楊曉在香港做嘢已經幾年喇。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Yèuhgwó ncíh mahn kéuih hái Hèunggóng deui måtyéh ge yanjeuhng jeui sām, kéuih yàtdíng wúih daap, "Hai 'sik'".</span></div>
+    <div class="line"><span class="cantonese">如果你問佢係香港對乜嘢印象最深，佢一定會答「係『食』」。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="cantonese">點解呢？</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Hái Hèunggóng, néih hàahngchéutgāi táihaah, sèiwāih dōu hóyh gindou sikhyeh ge deihfōng.</span></div>
+    <div class="line"><span class="cantonese">喺香港，你行出街睇吓，四圍都可以見到食嘅地方。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Daaih siu síksī tõngāai dōu haih.</span></div>
+    <div class="line"><span class="cantonese">大小食肆通街都係。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Saigai gokgwok ge méihsíhk dōu hóyh hái nidouh wandou, janhái bàau lòh maahn yáuh.</span></div>
+    <div class="line"><span class="cantonese">世界各國嘅美食都可以喺呢度搵到，真係包羅萬有。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Yèuhng Hiu hái gāihéung gósihn sāi, chúhgloih dōu meih síhkgow fuhnjíau, aa3 zoeng2, sèhgāng dī gám ge yeh.</span></div>
+    <div class="line"><span class="cantonese">楊曉家鄉嘅時候，從來都未食過風爪、鴨掌、蛇羹嗰啲嘢。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Heísīn, kéuih dōu ríhaih géi gám si, gokdák nidī yeh hóu wahtdaht,</span></div>
+    <div class="line"><span class="cantonese">起先，佢都唔係敢試，覺得呢啲嘢好核突，</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">daahnhái gindou dī Hèunggóngyāhn gogo dōu syùndou jéunjeun yáuhméi,</span></div>
+    <div class="line"><span class="cantonese">但係見倒啲香港人個個都吃到津津有味，</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">sàmnam máih jāpsyū, méimái ngáahn fong yátgau yahpáu,</span></div>
+    <div class="line"><span class="cantonese">心諗應該幾好味，瞇眼跟放一啲入口，</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">gwoyīn hó meihdouw, juhngh yuht síhk yuht gokdāk hússihk tīm.</span></div>
+    <div class="line"><span class="cantonese">果然好味道，佢越食越覺得好食添。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Yíhgā kéuih māat dōu síhk:</span></div>
+    <div class="line"><span class="cantonese">而家佢乜都食：</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Yáushíh, jiùjū gān pahngyáuh heui yám jǒu chāh, síhk yáuhjagwái sung jūk;</span></div>
+    <div class="line"><span class="cantonese">有時，朝早同朋友去飲早茶，食油炸鬼送粥；</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">yáushíh heui Yáuhmhdéi síhk Chìuhjáau dàilâng;</span></div>
+    <div class="line"><span class="cantonese">有時去油麻地食潮州打冷；</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Tǐnáahng ge síhauh, yauh túhng pahngyáuh heui síhk fówo waahkjé dàibnlouh;</span></div>
+    <div class="line"><span class="cantonese">天冷嘅時候，又同朋友去食火鍋或者打邊爐；</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Yáushíh gāángáadantāndan síhk go faahnháp dōu géi jīmih.</span></div>
+    <div class="line"><span class="cantonese">有時簡簡單單食個飯盒都幾滋味。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Bätgwó, Yèuhng Híu jüey jünygí ge juhnghái cháhcāanténg,</span></div>
+    <div class="line"><span class="cantonese">不過，楊曉最鍾意嘅係係茶餐廳，</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">yínwèi bōngchan cháhcāanténg ge dósou haih fuhgahn ge gâiifōng tūng suhkaaak, heifān chèuihyi;</span></div>
+    <div class="line"><span class="cantonese">因為幫襯茶餐廳嘅多數係附近嘅街坊同熟客，氣氛隨意；</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">yihcé haih deihdouh ge Héunggóng háumhei, syúnjaahk yauh dō, fūnggihm yaúh yàhn, yaúh hóyh jihyaúh puidapa, jihyàuh găgaaam.</span></div>
+    <div class="line"><span class="cantonese">而且係地道嘅香港口味，選擇又多，豐儉由人，又可以自由配搭，自由加減。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Kéuih yihgá sīk yuhng Gwóngdûngwá lohk ōdá, jühng sīk tūngfócgi góng yiu "sīu yaúh", "jáu tihm", "hong dáí" dăngdâng, jìhkchihng sèng go Héunggóngyàhn gám.</span></div>
+    <div class="line"><span class="cantonese">佢而家識用廣東話落柸打，仲識同夥計講要「少油」、「走甜」、「烘底」等等，真係成個香港人噉。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Yèuhng Híu yaúh go Héunggóng pángnyàuh Lóuh Chán, hóu gónggau yámsīhk ge, kéuihge taatíái yaúh haih go pàangyahm jyūngā.</span></div>
+    <div class="line"><span class="cantonese">楊曉有個香港朋友老陳，好講究飲食嘅。佢嘅太太又係個烹飪專家。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Yáuy yāt máahn, kéuihdeih lèuhng fūfuh chèng Yèuhng Híu heui kéuihdeih ge ūkkéi sīkfaahn.</span></div>
+    <div class="line"><span class="cantonese">有一晚，佢哋夫妻倆請楊曉去佢哋屋企食飯。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">陳太</div>
+    <div class="line"><span class="cantonese">起筷！起筷！</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">楊曉</div>
+    <div class="line"><span class="cantonese">陳生、陳太，多謝你哋！呢次係我第一次係香港人屋企食飯。陳太，你煮餸好過晒酒樓嗰大廚。今日真係有口福，我專登嚟試真嘅陳太你嘅手勢。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="cantonese">陳太笑到見牙唔見眼嘅話：</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">陳太</div>
+    <div class="line"><span class="cantonese">小楊你咁聽得偈，我好求其嘅咋。唔好客氣，家常便飯，隨便夾餸啦。阿陳，去廚房撈隻湯殼、擸碗湯俾人，再順便擈罌鹽出嚟㖞。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">老陳</div>
+    <div class="line"><span class="pinyin">Lóuh Chán bátjó géi wún tōng cheūtlāih, deui Yèuhng Hiu wah:</span></div>
+    <div class="line"><span class="cantonese">老陳擇咗幾碗湯出嚟，對楊曉話：</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Ndíi tōng būjó géigo jūngtāih, hōu gau fóluh, hōu yeuhng ga.</span></div>
+    <div class="line"><span class="cantonese">呢啲湯煲咗幾個鐘，好夠火路，好潤啲。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="pinyin">Hái ngoihbinh sîkhmaaih gam dò yîhhei yéh, nyām dt tōngséui rǐndāk ga.</span></div>
+    <div class="line"><span class="cantonese">喺外便食埋咁多熱氣野，唔飲啲湯水唔得㗎。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">楊曉</div>
+    <div class="line"><span class="cantonese">唔！陳太煮餸真係色香味俱全，可唔可以向你請教下煮餸技巧呀？</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">陳太</div>
+    <div class="line"><span class="cantonese">第一一定要去街市買新鮮嘅材料，仲要識得配搭，都要知道邊種餸要加邊種配料同調味品。我哋煮菜除咗用豉油、糖、醋、胡椒粉呢啲傳統嘅調味品，仲會用沙律醬呀、咖哩呀、青芥辣呀、魚露呀嗪嘅。另外呢，仲要知道幾時要猛火，幾時要慢火，炒餸太猛火就會壞，太慢火又唔夠镬氣。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">楊曉</div>
+    <div class="line"><span class="cantonese">煮餸真係唔簡單。我自細都唔使點煮飯。而家做咗，如果唔咁出得街食，就喺屋企濘公仔麵，所以到而家都唔係識整餸。我咁啱學識蒸魚同炒菜曙。但係蒸魚我仲未搞掂火候，唔係蒸過喺就係唔熟。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">陳太</div>
+    <div class="line"><span class="cantonese">其實熟能生巧啫。好似我啦，閒閒咁煮咗廿幾年飯，識講都煮到識噉。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Yèuhng Hiu gómaahn sihkdaak hóu hōisām.</span></div>
+    <div class="line"><span class="cantonese">楊曉個晚食得好開心。佢覺得老陳真係幸福喔！</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="cantonese">另外一次，有第二個朋友王先生請佢食飯。呢次食嘅完全唔同，不過都幾特別。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">王先生</div>
+    <div class="line"><span class="cantonese">楊曉，唔好意思，唔知你慣唔慣，我哋今晚食嘅多數係齋，但係都係營養良好、低膽固醇嘅健康食品。我太太最怕肥。佢話酒家炒嘅菜太油膩，太多味精，對身體唔好，所以我哋好少出街食飯。呢啲餸你或者會覺得淡啲，因為我哋煮餸原則係少油，少鹽；不過味道都唔錯嘅，你試下啦。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">王太</div>
+    <div class="line"><span class="cantonese">而家啲香港人食嘅多數都有乜益，肉多，蔬菜少，油多；又鍾意食高膽固醇嘅海鮮，所以好多人有高血壓同心臟病。呢，阿王本來不知幾鍾意食啲煎炸香口嘅，而家我叫佢戒吃喎。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">王先生</div>
+    <div class="line"><span class="cantonese">係呀。但仲成日要我食埋晒啲番薯呀、蛤蜊來呀啲嗰啲添。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">楊曉</div>
+    <div class="line"><span class="cantonese">哇！真係夠晒健康。我仲知道香港人好鍾意食甜品同飲糖水。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">王太</div>
+    <div class="line"><span class="cantonese">係呀。尤其是秋天乾燥嗰陣時，喉乾舌燥，我哋鍾意飲啲糖水同蜜糖嚟潤返吓。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="line"><span class="cantonese">食過啲兩餐之後，楊曉都有啲心郁郁，想學吓烹飪，隔幾日話噃定可以親自下廚煮返兩味，同女朋友搵拍檔，嗰樣就夠晒浪漫嚟。</span></div>
+  </div>
+
+  <h3 style="margin:20px 0 10px;color:#555;">語法詞義註釋</h3>
+  <div class="dialogue-block">
+    <p><strong>唔使點煮飯</strong> 意思是「不怎麼需要煮飯」。</p>
+  </div>
+
+  <h3 style="margin:20px 0 10px;color:#555;">文化背景註釋</h3>
+  <div class="dialogue-block">
+    <h4>少油、走甜、烘底</h4>
+    <p>喺香港嘅很多餐廳，尤其係快餐店同茶餐廳，顧客可要求加減或替換食物中嘅某些成份。為節省時間，香港粵語發展出了一套點餐用語。「多〈名詞〉」同「少〈名詞〉」指增加或減少某物嘅分量，「走〈名詞〉」指唔要某種配料，如飲品可要求「多奶」、「少甜」（少啲兒糖）、「走冰/走雪」（唔要冰塊）等，飯菜可要求「少油」、「走色」（唔要醬油）、「全走」（油、鹽、醬全唔要）等。「轉〈名詞〉」嘅意思係替換某物，如套餐中嘅主食可要求「轉意粉」（換成意粉）、「轉幼麵」（換成細麵）等。「烘底」係指把三文治嘅表面烘得微焦。</p>
+  </div>
+
+  <div class="dialogue-block">
+    <h4>飲湯</h4>
+    <p>廣東、香港一帶喜歡喝長時間熬製嘅湯，稱為「老火靚湯」，材料有肉、菜、乾貨、藥材等，被認為富於營養，可滋潤強身。</p>
+  </div>
+
+  <div class="dialogue-block">
+    <h4>起筷！</h4>
+    <p>請客時主人招呼客人開始用飯嘅用語，相當於普通話中講「食吧！食吧！」。</p>
+  </div>
+
+  <div class="dialogue-block">
+    <h4>嫩 / 燉</h4>
+    <p>亦作「燉」，粵菜中嘅燉係把食物置於容器內，再置於水中加熱，與某些地方菜中嘅燉（如「豬肉燉粉條」）唔同。加水用文火煮至爛熟嘅烹飪法相當於粵語中嘅「炆」。</p>
+  </div>
 </div>
 
-<div class="text-block">
-<p class="pinyin">Yèuhng Hiu hái gāihéung gósihn sāi, chúhgloih dōu meih síhkgow fuhnjíau, aa3 zoeng2, sèhgāng dī gám ge yeh.</p>
-<p>楊曉家鄉嘅時候，從來都未食過風爪、鴨掌、蛇羹嗰啲嘢。</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Heísīn, kéuih dōu ríhaih géi gám si, gokdák nidī yeh hóu wahtdaht,</p>
-<p>起先，佢都唔係敢試，覺得呢啲嘢好核突，</p>
-</div>
-<div class="text-block">
-<p class="pinyin">daahnhái gindou dī Hèunggóngyāhn gogo dōu syùndou jéunjeun yáuhméi,</p>
-<p>但係見倒啲香港人個個都吃到津津有味，</p>
-</div>
-<div class="text-block">
-<p class="pinyin">sàmnam máih jāpsyū, méimái ngáahn fong yátgau yahpáu,</p>
-<p>心諗應該幾好味，瞇眼跟放一啲入口，</p>
-</div>
-<div class="text-block">
-<p class="pinyin">gwoyīn hó meihdouw, juhngh yuht síhk yuht gokdāk hússihk tīm.</p>
-<p>果然好味道，佢越食越覺得好食添。</p>
-</div>
-
-<div class="text-block">
-<p class="pinyin">Yíhgā kéuih māat dōu síhk:</p>
-<p>而家佢乜都食：</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Yáushíh, jiùjū gān pahngyáuh heui yám jǒu chāh, síhk yáuhjagwái sung jūk;</p>
-<p>有時，朝早同朋友去飲早茶，食油炸鬼送粥；</p>
-</div>
-<div class="text-block">
-<p class="pinyin">yáushíh heui Yáuhmhdéi síhk Chìuhjáau dàilâng;</p>
-<p>有時去油麻地食潮州打冷；</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Tǐnáahng ge síhauh, yauh túhng pahngyáuh heui síhk fówo waahkjé dàibnlouh;</p>
-<p>天冷嘅時候，又同朋友去食火鍋或者打邊爐；</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Yáushíh gāángáadantāndan síhk go faahnháp dōu géi jīmih.</p>
-<p>有時簡簡單單食個飯盒都幾滋味。</p>
-</div>
-
-<div class="text-block">
-<p class="pinyin">Bätgwó, Yèuhng Híu jüey jünygí ge juhnghái cháhcāanténg,</p>
-<p>不過，楊曉最鍾意嘅係係茶餐廳，</p>
-</div>
-<div class="text-block">
-<p class="pinyin">yínwèi bōngchan cháhcāanténg ge dósou haih fuhgahn ge gâiifōng tūng suhkaaak, heifān chèuihyi;</p>
-<p>因為幫襯茶餐廳嘅多數係附近嘅街坊同熟客，氣氛隨意；</p>
-</div>
-<div class="text-block">
-<p class="pinyin">yihcé haih deihdouh ge Héunggóng háumhei, syúnjaahk yauh dō, fūnggihm yaúh yàhn, yaúh hóyh jihyaúh puidapa, jihyàuh găgaaam.</p>
-<p>而且係地道嘅香港口味，選擇又多，豐儉由人，又可以自由配搭，自由加減。</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Kéuih yihgá sīk yuhng Gwóngdûngwá lohk ōdá, jühng sīk tūngfócgi góng yiu \"sīu yaúh\", \"jáu tihm\", \"hong dáí\" dăngdâng, jìhkchihng sèng go Héunggóngyàhn gám.</p>
-<p>佢而家識用廣東話落柸打，仲識同夥計講要「少油」、「走甜」、「烘底」等等，真係成個香港人噉。</p>
+<!-- ======================== SECTION 2: 生詞 ======================== -->
+<div class="section" id="vocab">
+  <div class="section-title">2.1 生詞</div>
+  <div class="audio-bar"><label>🔊 生詞朗讀：</label><audio controls preload="none"><source src="../audio/Lesson02_2.mp3" type="audio/mpeg"></audio></div>
+  <table class="vocab-table">
+    <tr><th>序號</th><th>詞語</th><th>釋義</th></tr>
+    <tr><td>1</td><td class="word">食肆</td><td class="meaning">餐廳、飯館、大排檔等吃飯嘅地方</td></tr>
+    <tr><td>2</td><td class="word">通街</td><td class="meaning">滿街</td></tr>
+    <tr><td>3</td><td class="word">包羅萬有</td><td class="meaning">包羅萬象</td></tr>
+    <tr><td>4</td><td class="word">起先</td><td class="meaning">一開始</td></tr>
+    <tr><td>5</td><td class="word">核突</td><td class="meaning">噁心；非常難看</td></tr>
+    <tr><td>6</td><td class="word">吮</td><td class="meaning">吮吸，嘬</td></tr>
+    <tr><td>7</td><td class="word">眯埋眼</td><td class="meaning">閉上眼睛</td></tr>
+    <tr><td>8</td><td class="word">收尾</td><td class="meaning">後來</td></tr>
+    <tr><td>9</td><td class="word">油炸鬼</td><td class="meaning">油條</td></tr>
+    <tr><td>10</td><td class="word">送</td><td class="meaning">（用菜）下（飯、粥等）</td></tr>
+    <tr><td>11</td><td class="word">潮州打冷</td><td class="meaning">大排檔風味嘅潮州菜</td></tr>
+    <tr><td>12</td><td class="word">打邊爐</td><td class="meaning">吃火鍋</td></tr>
+    <tr><td>13</td><td class="word">飯盒</td><td class="meaning">盒飯；飯盒</td></tr>
+    <tr><td>14</td><td class="word">幫襯</td><td class="meaning">光顧</td></tr>
+    <tr><td>15</td><td class="word">街坊</td><td class="meaning">鄰居</td></tr>
+    <tr><td>16</td><td class="word">落柸打</td><td class="meaning">下單</td></tr>
+    <tr><td>17</td><td class="word">專登</td><td class="meaning">特意；故意；專程</td></tr>
+    <tr><td>18</td><td class="word">嗆</td><td class="meaning">講</td></tr>
+    <tr><td>19</td><td class="word">湯殼</td><td class="meaning">湯勺</td></tr>
+    <tr><td>20</td><td class="word">擇</td><td class="meaning">盛，舀</td></tr>
+    <tr><td>21</td><td class="word">罌</td><td class="meaning">小罐，小瓶</td></tr>
+    <tr><td>22</td><td class="word">夠火路</td><td class="meaning">夠火候</td></tr>
+    <tr><td>23</td><td class="word">熱氣</td><td class="meaning">上火</td></tr>
+    <tr><td>24</td><td class="word">街市</td><td class="meaning">菜市場</td></tr>
+    <tr><td>25</td><td class="word">豉油</td><td class="meaning">醬油</td></tr>
+    <tr><td>26</td><td class="word">猛火</td><td class="meaning">大火</td></tr>
+    <tr><td>27</td><td class="word">煱</td><td class="meaning">糊，焦</td></tr>
+    <tr><td>28</td><td class="word">夠煱氣</td><td class="meaning">形容用大火炒嘅菜好香、熱氣騰騰</td></tr>
+    <tr><td>29</td><td class="word">過龍</td><td class="meaning">過頭</td></tr>
+    <tr><td>30</td><td class="word">閒閒哋</td><td class="meaning">少說，至少</td></tr>
+    <tr><td>31</td><td class="word">心郁郁</td><td class="meaning">有點心動</td></tr>
+    <tr><td>32</td><td class="word">搵拍檔</td><td class="meaning">（戀人）一齊食飯，享受二人世界</td></tr>
+  </table>
 </div>
 
-<div class="text-block">
-<p class="pinyin">Yèuhng Híu yaúh go Héunggóng pángnyàuh Lóuh Chán, hóu gónggau yámsīhk ge, kéuihge taatíái yaúh haih go pàangyahm jyūngā.</p>
-<p>楊曉有個香港朋友老陳，好講究飲食嘅。佢嘅太太又係個烹飪專家。</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Yáuy yāt máahn, kéuihdeih lèuhng fūfuh chèng Yèuhng Híu heui kéuihdeih ge ūkkéi sīkfaahn.</p>
-<p>有一晚，佢哋夫妻倆請楊曉去佢哋屋企食飯。</p>
-</div>
-
-<div class="dialogue">
-<p class="dialogue-speaker">陳太：</p>
-<p>起筷！起筷！</p>
-</div>
-
-<div class="dialogue">
-<p class="dialogue-speaker">楊曉：</p>
-<p>陳生、陳太，多謝你哋！呢次係我第一次係香港人屋企食飯。陳太，你煮餸好過晒酒樓嗰大廚。今日真係有口福，我專登嚟試真嘅陳太你嘅手勢。</p>
-</div>
-
-<div class="text-block">
-<p>陳太笑到見牙唔見眼嘅話：</p>
+<!-- ======================== SECTION 2.2: 難讀字詞 ======================== -->
+<div class="section" id="difficult">
+  <div class="section-title">2.2 難讀字詞</div>
+  <div class="audio-bar"><label>🔊 難讀字詞：</label><audio controls preload="none"><source src="../audio/Lesson02_3.mp3" type="audio/mpeg"></audio></div>
+  <table class="vocab-table">
+    <tr><th>序號</th><th>字詞</th></tr>
+    <tr><td>1</td><td class="word">津津有味</td></tr>
+    <tr><td>2</td><td class="word">粥</td></tr>
+    <tr><td>3</td><td class="word">享受</td></tr>
+    <tr><td>4</td><td class="word">烹飪專家</td></tr>
+    <tr><td>5</td><td class="word">潤</td></tr>
+    <tr><td>6</td><td class="word">傳統</td></tr>
+    <tr><td>7</td><td class="word">沙律</td></tr>
+    <tr><td>8</td><td class="word">熟能生巧</td></tr>
+    <tr><td>9</td><td class="word">幸福</td></tr>
+    <tr><td>10</td><td class="word">營養</td></tr>
+    <tr><td>11</td><td class="word">注重</td></tr>
+  </table>
 </div>
 
-<div class="dialogue">
-<p class="dialogue-speaker">陳太：</p>
-<p>小楊你咁聽得偈，我好求其嘅咋。唔好客氣，家常便飯，隨便夾餸啦。阿陳，去廚房撈隻湯殼、擸碗湯俾人，再順便擈罌鹽出嚟㖞。</p>
+<!-- ======================== SECTION 3: 附加詞彙 ======================== -->
+<div class="section" id="extra">
+  <div class="section-title">3 附加詞彙</div>
+  <div class="audio-bar"><label>🔊 附加詞彙：</label><audio controls preload="none"><source src="../audio/Lesson02_4.mp3" type="audio/mpeg"></audio></div>
+
+  <h3 style="margin:20px 0 10px;color:#555;">3.1 食品外觀及味道</h3>
+  <table class="vocab-table">
+    <tr><th>序號</th><th>詞語</th><th>粵拼</th></tr>
+    <tr><td>1</td><td class="word">鹹</td><td class="jyutping">hǎahm</td></tr>
+    <tr><td>2</td><td class="word">酸</td><td class="jyutping">syūn</td></tr>
+    <tr><td>3</td><td class="word">苦</td><td class="jyutping">fǔ</td></tr>
+    <tr><td>4</td><td class="word">甘</td><td class="jyutping">gǎm</td></tr>
+    <tr><td>5</td><td class="word">澀</td><td class="jyutping">gíp</td></tr>
+    <tr><td>6</td><td class="word">摵</td><td class="jyutping">sěng</td></tr>
+    <tr><td>7</td><td class="word">麻辣</td><td class="jyutping">màhlaah</td></tr>
+    <tr><td>8</td><td class="word">鮮味</td><td class="jyutping">sǐnmeih</td></tr>
+    <tr><td>9</td><td class="word">油膩</td><td class="jyutping">yàuhneih</td></tr>
+    <tr><td>10</td><td class="word">脆</td><td class="jyutping">màhm</td></tr>
+    <tr><td>11</td><td class="word">韌</td><td class="jyutping">ngahm</td></tr>
+    <tr><td>12</td><td class="word">滑</td><td class="jyutping">waaht</td></tr>
+    <tr><td>13</td><td class="word">臭</td><td class="jyutping">sòng</td></tr>
+    <tr><td>14</td><td class="word">彈牙</td><td class="jyutping">daahnngáh</td></tr>
+    <tr><td>15</td><td class="word">酥脆</td><td class="jyutping">sōucheui</td></tr>
+    <tr><td>16</td><td class="word">嫩</td><td class="jyutping">nyuhn</td></tr>
+    <tr><td>17</td><td class="word">卜卜脆</td><td class="jyutping">bǒkbǒkcheui</td></tr>
+    <tr><td>18</td><td class="word">皮脆肉嫩</td><td class="jyutping">pèihcheui yuhknyuhn</td></tr>
+    <tr><td>19</td><td class="word">煙韌</td><td class="jyutping">yǐngahn</td></tr>
+    <tr><td>20</td><td class="word">香口</td><td class="jyutping">hēungháw</td></tr>
+    <tr><td>21</td><td class="word">結</td><td class="jyutping">giht</td></tr>
+    <tr><td>22</td><td class="word">色香味俱全</td><td class="jyutping">sīkhēungmeih kēuchyūhn</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 10px;color:#555;">3.2 烹飪方法</h3>
+  <table class="vocab-table">
+    <tr><th>序號</th><th>詞語</th><th>粵拼</th></tr>
+    <tr><td>1</td><td class="word">切</td><td class="jyutping">chit</td></tr>
+    <tr><td>2</td><td class="word">剁</td><td class="jyutping">deuk</td></tr>
+    <tr><td>3</td><td class="word">斬</td><td class="jyutping">jáam</td></tr>
+    <tr><td>4</td><td class="word">削</td><td class="jyutping">mòk</td></tr>
+    <tr><td>5</td><td class="word">撕皮</td><td class="jyutping">mītpèih</td></tr>
+    <tr><td>6</td><td class="word">批皮</td><td class="jyutping">pāipèih</td></tr>
+    <tr><td>7</td><td class="word">口蛋</td><td class="jyutping">faakdān</td></tr>
+    <tr><td>8</td><td class="word">腌</td><td class="jyutping">yip</td></tr>
+    <tr><td>9</td><td class="word">煎</td><td class="jyutping">jīn</td></tr>
+    <tr><td>10</td><td class="word">炒</td><td class="jyutping">chǎau</td></tr>
+    <tr><td>11</td><td class="word">煮</td><td class="jyutping">jyú</td></tr>
+    <tr><td>12</td><td class="word">烚</td><td class="jyutping">saahp</td></tr>
+    <tr><td>13</td><td class="word">炸</td><td class="jyutping">ja</td></tr>
+    <tr><td>14</td><td class="word">蒸</td><td class="jyutping">jīng</td></tr>
+    <tr><td>15</td><td class="word">煲</td><td class="jyutping">bōu</td></tr>
+    <tr><td>16</td><td class="word">紅燒</td><td class="jyutping">hùhngsū</td></tr>
+    <tr><td>17</td><td class="word">炆</td><td class="jyutping">mān</td></tr>
+    <tr><td>18</td><td class="word">白灼</td><td class="jyutping">baahkcheuk</td></tr>
+    <tr><td>19</td><td class="word">燉</td><td class="jyutping">dahn</td></tr>
+    <tr><td>20</td><td class="word">撈</td><td class="jyutping">lōu</td></tr>
+    <tr><td>21</td><td class="word">焗</td><td class="jyutping">guhk</td></tr>
+    <tr><td>22</td><td class="word">煙</td><td class="jyutping">yīn</td></tr>
+    <tr><td>23</td><td class="word">扒</td><td class="jyutping">pàh</td></tr>
+    <tr><td>24</td><td class="word">燜</td><td class="jyutping">fān</td></tr>
+    <tr><td>25</td><td class="word">煱</td><td class="jyutping">wuih</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 10px;color:#555;">3.3 調味品及其使用</h3>
+  <table class="vocab-table">
+    <tr><th>序號</th><th>詞語</th><th>粵拼</th></tr>
+    <tr><td>1</td><td class="word">鹽</td><td class="jyutping">yi hm</td></tr>
+    <tr><td>2</td><td class="word">海鮮醬</td><td class="jyutping">hóisŋjeung</td></tr>
+    <tr><td>3</td><td class="word">糖</td><td class="jyutping">tòhng</td></tr>
+    <tr><td>4</td><td class="word">辣椒醬</td><td class="jyutping">laahtjújeung</td></tr>
+    <tr><td>5</td><td class="word">豉油</td><td class="jyutping">sihyàuh</td></tr>
+    <tr><td>6</td><td class="word">沙律醬</td><td class="jyutping">sāléutjeung</td></tr>
+    <tr><td>7</td><td class="word">生抽</td><td class="jyutping">sānghchāu</td></tr>
+    <tr><td>8</td><td class="word">茄汁</td><td class="jyutping">kejāp</td></tr>
+    <tr><td>9</td><td class="word">老抽</td><td class="jyutping">lóuhchāu</td></tr>
+    <tr><td>10</td><td class="word">芥辣</td><td class="jyutping">gaailaht</td></tr>
+    <tr><td>11</td><td class="word">蠔油</td><td class="jyutping">hòuhyàuh</td></tr>
+    <tr><td>12</td><td class="word">青芥辣</td><td class="jyutping">chēnggaailaht</td></tr>
+    <tr><td>13</td><td class="word">橄欖油</td><td class="jyutping">gaamláamyàuh</td></tr>
+    <tr><td>14</td><td class="word">落</td><td class="jyutping">loh k</td></tr>
+    <tr><td>15</td><td class="word">胡椒粉</td><td class="jyutping">wùhjìufán</td></tr>
+    <tr><td>16</td><td class="word">蕃椒</td><td class="jyutping">sám / sá</td></tr>
+    <tr><td>17</td><td class="word">蜜糖</td><td class="jyutping">mahttòhng</td></tr>
+    <tr><td>18</td><td class="word">點</td><td class="jyutping">dim</td></tr>
+    <tr><td>19</td><td class="word">白醋</td><td class="jyutping">baahkchou</td></tr>
+    <tr><td>20</td><td class="word">搽</td><td class="jyutping">chàh</td></tr>
+    <tr><td>21</td><td class="word">浙醋</td><td class="jyutping">jitchou</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 10px;color:#555;">3.4 與食物及烹飪有關嘅俗語</h3>
+  <table class="vocab-table">
+    <tr><th>序號</th><th>俗語</th><th>釋義</th></tr>
+    <tr><td>1</td><td class="word">紅衫魚</td><td class="meaning">一種體型為紅色嘅海魚；一百元港幣紙鈔嘅俗稱</td></tr>
+    <tr><td>2</td><td class="word">粗心蝦</td><td class="meaning">粗心大意嘅人</td></tr>
+    <tr><td>3</td><td class="word">錯字</td><td class="meaning">英文字</td></tr>
+    <tr><td>4</td><td class="word">鹹魚翻生</td><td class="meaning">比喻已不被看好嘅人東山再起，略帶貶義</td></tr>
+    <tr><td>5</td><td class="word">光說唔做</td><td class="meaning">talk jǐtāi tāk</td></tr>
+    <tr><td>6</td><td class="word">雞毛撢子打屁股</td><td class="meaning">tāhngtiu mān jyōyuhk</td></tr>
+    <tr><td>7</td><td class="word">嘻嘻哈哈</td><td class="meaning">saahpháh saahpháh · 愛理不理</td></tr>
+    <tr><td>8</td><td class="word">吃醋</td><td class="meaning">haapchou</td></tr>
+    <tr><td>9</td><td class="word">被吹</td><td class="meaning">denggβou（同男/女朋友）吹了</td></tr>
+    <tr><td>10</td><td class="word">挽復</td><td class="meaning">kūβou 試圖同分手嘅情人重修舊好</td></tr>
+    <tr><td>11</td><td class="word">揹債</td><td class="meaning">māōwhk 負起責任</td></tr>
+    <tr><td>12</td><td class="word">補救</td><td class="meaning">būūwhk 補救</td></tr>
+    <tr><td>13</td><td class="word">大錯</td><td class="meaning">daaihwhk 問題好嚴重</td></tr>
+    <tr><td>14</td><td class="word">九大簋</td><td class="meaning">九大菜，亦泛指菜好豐富</td></tr>
+  </table>
 </div>
 
-<div class="text-block">
-<p class="pinyin">Lóuh Chán bátjó géi wún tōng cheūtlāih, deui Yèuhng Hiu wah:</p>
-<p>老陳擇咗幾碗湯出嚟，對楊曉話：</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Ndíi tōng būjó géigo jūngtāih, hōu gau fóluh, hōu yeuhng ga.</p>
-<p>呢啲湯煲咗幾個鐘，好夠火路，好潤啲。</p>
-</div>
-<div class="text-block">
-<p class="pinyin">Hái ngoihbinh sîkhmaaih gam dò yîhhei yéh, nyām dt tōngséui rǐndāk ga.</p>
-<p>喺外便食埋咁多熱氣野，唔飲啲湯水唔得㗎。</p>
-</div>
+<!-- ======================== SECTION 4: 語音練習 ======================== -->
+<div class="section" id="phonetic">
+  <div class="section-title">4 語音練習：粵普聲母相異字例（2）</div>
+  <div class="audio-bar"><label>🔊 語音練習：</label><audio controls preload="none"><source src="../audio/Lesson02_5.mp3" type="audio/mpeg"></audio></div>
 
-<div class="dialogue">
-<p class="dialogue-speaker">楊曉：</p>
-<p>唔！陳太煮餸真係色香味俱全，可唔可以向你請教下煮餸技巧呀？</p>
-</div>
+  <h3 style="margin:20px 0 10px;color:#555;">4.1 k-f</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>快</td><td>faai</td><td>快速 faaichūk</td></tr>
+    <tr><td>塊</td><td>faai</td><td>一塊 yāt faai</td></tr>
+    <tr><td>筷</td><td>faai</td><td>筷子 faaiji</td></tr>
+    <tr><td>科</td><td>fō</td><td>科技 fōgeih</td></tr>
+    <tr><td>課</td><td>fō</td><td>功課 gūngfō</td></tr>
+    <tr><td>況</td><td>fong</td><td>況且 fongché</td></tr>
+    <tr><td>苦</td><td>fù</td><td>苦不堪言 fù băt hām yihn</td></tr>
+    <tr><td>枯</td><td>fū</td><td>枯燥 fūchou</td></tr>
+    <tr><td>款</td><td>fún</td><td>提款機 tàihfún'gēi</td></tr>
+    <tr><td>寬</td><td>fūn</td><td>寬恕 fūnsyu</td></tr>
+    <tr><td>闊</td><td>fut</td><td>闊佬 futlóu</td></tr>
+  </table>
 
-<div class="dialogue">
-<p class="dialogue-speaker">陳太：</p>
-<p>第一一定要去街市買新鮮嘅材料，仲要識得配搭，都要知道邊種餸要加邊種配料同調味品。我哋煮菜除咗用豉油、糖、醋、胡椒粉呢啲傳統嘅調味品，仲會用沙律醬呀、咖哩呀、青芥辣呀、魚露呀嗪嘅。另外呢，仲要知道幾時要猛火，幾時要慢火，炒餸太猛火就會壞，太慢火又唔夠镬氣。</p>
-</div>
+  <h3 style="margin:20px 0 10px;color:#555;">4.2 k-h</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>客</td><td>haak</td><td>客氣 haakhei</td></tr>
+    <tr><td>考</td><td>háu</td><td>考試 háausih</td></tr>
+    <tr><td>堪</td><td>hām</td><td>難堪 nàahnhām</td></tr>
+    <tr><td>啱</td><td>háng</td><td>唔啱 mháng</td></tr>
+    <tr><td>口</td><td>háu</td><td>口多多 háudōdō</td></tr>
+    <tr><td>可</td><td>hó</td><td>可惡 hówu</td></tr>
+    <tr><td>向</td><td>hon</td><td>向錢看 heungchíhnhon</td></tr>
+    <tr><td>還</td><td>hān</td><td>迴轉 jāuhōn</td></tr>
+    <tr><td>康</td><td>hōng</td><td>康樂 hōnglohk</td></tr>
+    <tr><td>渴</td><td>hot</td><td>頸渴 gěnghot</td></tr>
+    <tr><td>哭</td><td>hūk</td><td>一哭二餓三上吊 yāthūk yihngoh sāamséuhngdiu</td></tr>
+    <tr><td>孔</td><td>húng</td><td>七孔流血 chāthúng lauhhyut</td></tr>
+    <tr><td>空</td><td>hūng</td><td>四大皆空 seidaaihgāaihūng</td></tr>
+  </table>
 
-<div class="dialogue">
-<p class="dialogue-speaker">楊曉：</p>
-<p>煮餸真係唔簡單。我自細都唔使點煮飯。而家做咗，如果唔咁出得街食，就喺屋企濘公仔麵，所以到而家都唔係識整餸。我咁啱學識蒸魚同炒菜曙。但係蒸魚我仲未搞掂火候，唔係蒸過喺就係唔熟。</p>
-</div>
+  <h3 style="margin:20px 0 10px;color:#555;">4.3 k-l</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>檻</td><td>laahm</td><td>門檻 mūhnlaahm</td></tr>
+  </table>
 
-<div class="dialogue">
-<p class="dialogue-speaker">陳太：</p>
-<p>其實熟能生巧啫。好似我啦，閒閒咁煮咗廿幾年飯，識講都煮到識噉。</p>
-</div>
-
-<p class="pinyin">Yèuhng Hiu gómaahn sihkdaak hóu hōisām.</p>
-<p>楊曉個晚食得好開心。佢覺得老陳真係幸福喔！</p>
-</div>
-
-<div class="text-block">
-<p>另外一次，有第二個朋友王先生請佢食飯。呢次食嘅完全唔同，不過都幾特別。</p>
-</div>
-
-<div class="dialogue">
-<p class="dialogue-speaker">王先生：</p>
-<p>楊曉，唔好意思，唔知你慣唔慣，我哋今晚食嘅多數係齋，但係都係營養良好、低膽固醇嘅健康食品。我太太最怕肥。佢話酒家炒嘅菜太油膩，太多味精，對身體唔好，所以我哋好少出街食飯。呢啲餸你或者會覺得淡啲，因為我哋煮餸原則係少油，少鹽；不過味道都唔錯嘅，你試下啦。</p>
-</div>
-
-<div class="dialogue">
-<p class="dialogue-speaker">王太：</p>
-<p>而家啲香港人食嘅多數都有乜益，肉多，蔬菜少，油多；又鍾意食高膽固醇嘅海鮮，所以好多人有高血壓同心臟病。呢，阿王本來不知幾鍾意食啲煎炸香口嘅，而家我叫佢戒吃喎。</p>
-</div>
-
-<div class="dialogue">
-<p class="dialogue-speaker">王先生：</p>
-<p>係呀。但仲成日要我食埋晒啲番薯呀、蛤蜊來呀啲嗰啲添。</p>
-</div>
-
-<div class="dialogue">
-<p class="dialogue-speaker">楊曉：</p>
-<p>哇！真係夠晒健康。我仲知道香港人好鍾意食甜品同飲糖水。</p>
-</div>
-
-<div class="dialogue">
-<p class="dialogue-speaker">王太：</p>
-<p>係呀。尤其是秋天乾燥嗰陣時，喉乾舌燥，我哋鍾意飲啲糖水同蜜糖嚟潤返吓。</p>
+  <h3 style="margin:20px 0 10px;color:#555;">4.4 w-m</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>文</td><td>màhn</td><td>文盲 màhnmàhng</td></tr>
+    <tr><td>聞</td><td>màhn</td><td>聞風喪膽 màhntfing songdáam</td></tr>
+    <tr><td>吻</td><td>máhn</td><td>吻合 máhnhahp</td></tr>
+    <tr><td>問</td><td>mahm</td><td>問道於盲 mahndouh yūmàahng</td></tr>
+    <tr><td>襪</td><td>maht</td><td>襪褲 mahtfu</td></tr>
+    <tr><td>物</td><td>maht</td><td>物以罕為貴 maht yih hón wáih gwai</td></tr>
+    <tr><td>晚</td><td>máahn</td><td>晚霞 máahnháh</td></tr>
+    <tr><td>萬</td><td>maaohn</td><td>萬里長城 maaohnléih chèuhngsihng</td></tr>
+    <tr><td>微</td><td>mèih</td><td>微乎其微 méihfūh kèihméih</td></tr>
+    <tr><td>尾</td><td>méih</td><td>豬尾 jyūméih</td></tr>
+    <tr><td>未</td><td>meih</td><td>末了緣 meihliuhyūhn</td></tr>
+    <tr><td>味</td><td>meih</td><td>味道 meihdough</td></tr>
+    <tr><td>望</td><td>mohng</td><td>望子成龍 mohngji sihnglūhng</td></tr>
+  </table>
 </div>
 
-<div class="text-block">
-<p>食過啲兩餐之後，楊曉都有啲心郁郁，想學吓烹飪，隔幾日話噃定可以親自下廚煮返兩味，同女朋友搵拍檔，嗰樣就夠晒浪漫嚟。</p>
+<!-- ======================== FOOTER ======================== -->
+<footer>粵語速成 中級教材 · 第2課 · Generated by LeoneZhu</footer>
 </div>
-
-<!-- 語法詞義註釋 -->
-<section>
-<h3 class="subsection-title">語法詞義註釋</h3>
-<div class="culture-note">
-<p><strong>唔使點煮飯</strong> 意思是「不怎麼需要煮飯」。</p>
-</div>
-</section>
-
-<!-- 文化背景註釋 -->
-<section>
-<h3 class="subsection-title">文化背景註釋</h3>
-<div class="culture-note">
-<h4>少油、走甜、烘底</h4>
-<p>喺香港嘅很多餐廳，尤其係快餐店同茶餐廳，顧客可要求加減或替換食物中嘅某些成份。為節省時間，香港粵語發展出了一套點餐用語。「多〈名詞〉」同「少〈名詞〉」指增加或減少某物嘅分量，「走〈名詞〉」指唔要某種配料，如飲品可要求「多奶」、「少甜」（少啲兒糖）、「走冰/走雪」（唔要冰塊）等，飯菜可要求「少油」、「走色」（唔要醬油）、「全走」（油、鹽、醬全唔要）等。「轉〈名詞〉」嘅意思係替換某物，如套餐中嘅主食可要求「轉意粉」（換成意粉）、「轉幼麵」（換成細麵）等。「烘底」係指把三文治嘅表面烘得微焦。</p>
-</div>
-
-<div class="culture-note">
-<h4>飲湯</h4>
-<p>廣東、香港一帶喜歡喝長時間熬製嘅湯，稱為「老火靚湯」，材料有肉、菜、乾貨、藥材等，被認為富於營養，可滋潤強身。</p>
-</div>
-
-<div class="culture-note">
-<h4>起筷！</h4>
-<p>請客時主人招呼客人開始用飯嘅用語，相當於普通話中講「食吧！食吧！」。</p>
-</div>
-
-<div class="culture-note">
-<h4>嫩 / 燉</h4>
-<p>亦作「燉」，粵菜中嘅燉係把食物置於容器內，再置於水中加熱，與某些地方菜中嘅燉（如「豬肉燉粉條」）唔同。加水用文火煮至爛熟嘅烹飪法相當於粵語中嘅「炆」。</p>
-</div>
-</section>
-
-<!-- 生詞 -->
-<section>
-<h2 class="section-title">2 詞語</h2>
-<h3 class="subsection-title">2.1 生詞</h3>
-<div class="audio-bar">
-<p>🎧 聆聽生詞發音</p>
-<audio controls preload="none">
-<source src="../audio/Lesson02_2.mp3" type="audio/mpeg">
-</audio>
-</div>
-<table class="vocab-table">
-<tr><td class="vocab-num">1</td><td class="vocab-cantonese">食肆</td><td class="vocab-meaning">餐廳、飯館、大排檔等吃飯嘅地方</td></tr>
-<tr><td class="vocab-num">2</td><td class="vocab-cantonese">通街</td><td class="vocab-meaning">滿街</td></tr>
-<tr><td class="vocab-num">3</td><td class="vocab-cantonese">包羅萬有</td><td class="vocab-meaning">包羅萬象</td></tr>
-<tr><td class="vocab-num">4</td><td class="vocab-cantonese">起先</td><td class="vocab-meaning">一開始</td></tr>
-<tr><td class="vocab-num">5</td><td class="vocab-cantonese">核突</td><td class="vocab-meaning">噁心；非常難看</td></tr>
-<tr><td class="vocab-num">6</td><td class="vocab-cantonese">吮</td><td class="vocab-meaning">吮吸，嘬</td></tr>
-<tr><td class="vocab-num">7</td><td class="vocab-cantonese">眯埋眼</td><td class="vocab-meaning">閉上眼睛</td></tr>
-<tr><td class="vocab-num">8</td><td class="vocab-cantonese">收尾</td><td class="vocab-meaning">後來</td></tr>
-<tr><td class="vocab-num">9</td><td class="vocab-cantonese">油炸鬼</td><td class="vocab-meaning">油條</td></tr>
-<tr><td class="vocab-num">10</td><td class="vocab-cantonese">送</td><td class="vocab-meaning">（用菜）下（飯、粥等）</td></tr>
-<tr><td class="vocab-num">11</td><td class="vocab-cantonese">潮州打冷</td><td class="vocab-meaning">大排檔風味嘅潮州菜</td></tr>
-<tr><td class="vocab-num">12</td><td class="vocab-cantonese">打邊爐</td><td class="vocab-meaning">吃火鍋</td></tr>
-<tr><td class="vocab-num">13</td><td class="vocab-cantonese">飯盒</td><td class="vocab-meaning">盒飯；飯盒</td></tr>
-<tr><td class="vocab-num">14</td><td class="vocab-cantonese">幫襯</td><td class="vocab-meaning">光顧</td></tr>
-<tr><td class="vocab-num">15</td><td class="vocab-cantonese">街坊</td><td class="vocab-meaning">鄰居</td></tr>
-<tr><td class="vocab-num">16</td><td class="vocab-cantonese">落柸打</td><td class="vocab-meaning">下單</td></tr>
-<tr><td class="vocab-num">17</td><td class="vocab-cantonese">專登</td><td class="vocab-meaning">特意；故意；專程</td></tr>
-<tr><td class="vocab-num">18</td><td class="vocab-cantonese">嗆</td><td class="vocab-meaning">講</td></tr>
-<tr><td class="vocab-num">19</td><td class="vocab-cantonese">湯殼</td><td class="vocab-meaning">湯勺</td></tr>
-<tr><td class="vocab-num">20</td><td class="vocab-cantonese">擇</td><td class="vocab-meaning">盛，舀</td></tr>
-<tr><td class="vocab-num">21</td><td class="vocab-cantonese">罌</td><td class="vocab-meaning">小罐，小瓶</td></tr>
-<tr><td class="vocab-num">22</td><td class="vocab-cantonese">夠火路</td><td class="vocab-meaning">夠火候</td></tr>
-<tr><td class="vocab-num">23</td><td class="vocab-cantonese">熱氣</td><td class="vocab-meaning">上火</td></tr>
-<tr><td class="vocab-num">24</td><td class="vocab-cantonese">街市</td><td class="vocab-meaning">菜市場</td></tr>
-<tr><td class="vocab-num">25</td><td class="vocab-cantonese">豉油</td><td class="vocab-meaning">醬油</td></tr>
-<tr><td class="vocab-num">26</td><td class="vocab-cantonese">猛火</td><td class="vocab-meaning">大火</td></tr>
-<tr><td class="vocab-num">27</td><td class="vocab-cantonese">煱</td><td class="vocab-meaning">糊，焦</td></tr>
-<tr><td class="vocab-num">28</td><td class="vocab-cantonese">夠煱氣</td><td class="vocab-meaning">形容用大火炒嘅菜好香、熱氣騰騰</td></tr>
-<tr><td class="vocab-num">29</td><td class="vocab-cantonese">過龍</td><td class="vocab-meaning">過頭</td></tr>
-<tr><td class="vocab-num">30</td><td class="vocab-cantonese">閒閒哋</td><td class="vocab-meaning">少說，至少</td></tr>
-<tr><td class="vocab-num">31</td><td class="vocab-cantonese">心郁郁</td><td class="vocab-meaning">有點心動</td></tr>
-<tr><td class="vocab-num">32</td><td class="vocab-cantonese">搵拍檔</td><td class="vocab-meaning">（戀人）一齊食飯，享受二人世界</td></tr>
-</table>
-</section>
-
-<!-- 難讀字詞 -->
-<section>
-<h3 class="subsection-title">2.2 難讀字詞</h3>
-<div class="audio-bar">
-<p>🎧 聆聽發音</p>
-<audio controls preload="none">
-<source src="../audio/Lesson02_3.mp3" type="audio/mpeg">
-</audio>
-</div>
-<table class="vocab-table">
-<tr><td class="vocab-num">1</td><td class="vocab-cantonese">津津有味</td><td class="vocab-meaning">jēunjiēun yáuhméi</td></tr>
-<tr><td class="vocab-num">2</td><td class="vocab-cantonese">粥</td><td class="vocab-meaning">jūk</td></tr>
-<tr><td class="vocab-num">3</td><td class="vocab-cantonese">享受</td><td class="vocab-meaning">héungsauh</td></tr>
-<tr><td class="vocab-num">4</td><td class="vocab-cantonese">烹飪專家</td><td class="vocab-meaning">pāangyahm jyūngā</td></tr>
-<tr><td class="vocab-num">5</td><td class="vocab-cantonese">潤</td><td class="vocab-meaning">yeuhn</td></tr>
-<tr><td class="vocab-num">6</td><td class="vocab-cantonese">傳統</td><td class="vocab-meaning">chyūhtūng</td></tr>
-<tr><td class="vocab-num">7</td><td class="vocab-cantonese">沙律</td><td class="vocab-meaning">sāleut</td></tr>
-<tr><td class="vocab-num">8</td><td class="vocab-cantonese">熟能生巧</td><td class="vocab-meaning">suhk nànng sāng háau</td></tr>
-<tr><td class="vocab-num">9</td><td class="vocab-cantonese">幸福</td><td class="vocab-meaning">hahngfūk</td></tr>
-<tr><td class="vocab-num">10</td><td class="vocab-cantonese">營養</td><td class="vocab-meaning">yīhngyéuhng</td></tr>
-<tr><td class="vocab-num">11</td><td class="vocab-cantonese">注重</td><td class="vocab-meaning">jyujuhng</td></tr>
-</table>
-</section>
-
-<!-- 附加詞彙 -->
-<section>
-<h2 class="section-title">3 附加詞彙</h2>
-
-<h3 class="subsection-title">3.1 食品外觀及味道</h3>
-<div class="audio-bar">
-<p>🎧 聆聽附加詞彙</p>
-<audio controls preload="none">
-<source src="../audio/Lesson02_4.mp3" type="audio/mpeg">
-</audio>
-</div>
-<div class="phrase-row"><span class="phrase-cantonese">鹹</span><span class="phrase-pinyin">hǎahm</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">酸</span><span class="phrase-pinyin">syūn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">苦</span><span class="phrase-pinyin">fǔ</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">甘</span><span class="phrase-pinyin">gǎm</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">澀</span><span class="phrase-pinyin">gíp</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">摵</span><span class="phrase-pinyin">sěng</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">麻辣</span><span class="phrase-pinyin">màhlaah</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">鮮味</span><span class="phrase-pinyin">sǐnmeih</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">油膩</span><span class="phrase-pinyin">yàuhneih</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">脆</span><span class="phrase-pinyin">màhm</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">韌</span><span class="phrase-pinyin">ngahm</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">滑</span><span class="phrase-pinyin">waaht</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">臭</span><span class="phrase-pinyin">sòng</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">彈牙</span><span class="phrase-pinyin">daahnngáh</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">酥脆</span><span class="phrase-pinyin">sōucheui</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">嫩</span><span class="phrase-pinyin">nyuhn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">卜卜脆</span><span class="phrase-pinyin">bǒkbǒkcheui</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">皮脆肉嫩</span><span class="phrase-pinyin">pèihcheui yuhknyuhn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">煙韌</span><span class="phrase-pinyin">yǐngahn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">香口</span><span class="phrase-pinyin">hēungháw</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">結</span><span class="phrase-pinyin">giht</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">色香味俱全</span><span class="phrase-pinyin">sīkhēungmeih kēuchyūhn</span></div>
-
-<h3 class="subsection-title">3.2 烹飪方法</h3>
-<div class="phrase-row"><span class="phrase-cantonese">切</span><span class="phrase-pinyin">chit</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">剁</span><span class="phrase-pinyin">deuk</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">斬</span><span class="phrase-pinyin">jáam</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">削</span><span class="phrase-pinyin">mòk</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">撕皮</span><span class="phrase-pinyin">mītpèih</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">批皮</span><span class="phrase-pinyin">pāipèih</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">口蛋</span><span class="phrase-pinyin">faakdān</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">腌</span><span class="phrase-pinyin">yip</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">煎</span><span class="phrase-pinyin">jīn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">炒</span><span class="phrase-pinyin">chǎau</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">煮</span><span class="phrase-pinyin">jyú</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">烚</span><span class="phrase-pinyin">saahp</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">炸</span><span class="phrase-pinyin">ja</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">蒸</span><span class="phrase-pinyin">jīng</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">煲</span><span class="phrase-pinyin">bōu</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">紅燒</span><span class="phrase-pinyin">hùhngsū</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">炆</span><span class="phrase-pinyin">mān</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">白灼</span><span class="phrase-pinyin">baahkcheuk</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">燉</span><span class="phrase-pinyin">dahn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">撈</span><span class="phrase-pinyin">lōu</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">焗</span><span class="phrase-pinyin">guhk</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">煙</span><span class="phrase-pinyin">yīn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">扒</span><span class="phrase-pinyin">pàh</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">燜</span><span class="phrase-pinyin">fān</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">煱</span><span class="phrase-pinyin">wuih</span></div>
-
-<h3 class="subsection-title">3.3 調味品及其使用</h3>
-<div class="phrase-row"><span class="phrase-cantonese">鹽</span><span class="phrase-pinyin">yi hm</span><span class="phrase-meaning">海鮮醬</span><span class="phrase-pinyin">hóisŋjeung</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">糖</span><span class="phrase-pinyin">tòhng</span><span class="phrase-meaning">辣椒醬</span><span class="phrase-pinyin">laahtjújeung</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">豉油</span><span class="phrase-pinyin">sihyàuh</span><span class="phrase-meaning">沙律醬</span><span class="phrase-pinyin">sāléutjeung</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">生抽</span><span class="phrase-pinyin">sānghchāu</span><span class="phrase-meaning">茄汁</span><span class="phrase-pinyin">kejāp</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">老抽</span><span class="phrase-pinyin">lóuhchāu</span><span class="phrase-meaning">芥辣</span><span class="phrase-pinyin">gaailaht</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">蠔油</span><span class="phrase-pinyin">hòuhyàuh</span><span class="phrase-meaning">青芥辣</span><span class="phrase-pinyin">chēnggaailaht</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">橄欖油</span><span class="phrase-pinyin">gaamláamyàuh</span><span class="phrase-meaning">落</span><span class="phrase-pinyin">loh k</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">胡椒粉</span><span class="phrase-pinyin">wùhjìufán</span><span class="phrase-meaning">蕃椒</span><span class="phrase-pinyin">sám / sá</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">蜜糖</span><span class="phrase-pinyin">mahttòhng</span><span class="phrase-meaning">點</span><span class="phrase-pinyin">dim</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">白醋</span><span class="phrase-pinyin">baahkchou</span><span class="phrase-meaning">搽</span><span class="phrase-pinyin">chàh</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">浙醋</span><span class="phrase-pinyin">jitchou</span></div>
-
-<h3 class="subsection-title">3.4 與食物及烹飪有關嘅俗語</h3>
-<table class="vocab-table">
-<tr><td class="vocab-cantonese">紅衫魚</td><td class="vocab-meaning">一種體型為紅色嘅海魚；一百元港幣紙鈔嘅俗稱</td></tr>
-<tr><td class="vocab-cantonese">粗心蝦</td><td class="vocab-meaning">粗心大意嘅人</td></tr>
-<tr><td class="vocab-cantonese">錯字</td><td class="vocab-meaning">英文字</td></tr>
-<tr><td class="vocab-cantonese">鹹魚翻生</td><td class="vocab-meaning">鹹魚翻生·比喻已不被看好嘅人東山再起，略帶貶義</td></tr>
-<tr><td class="vocab-cantonese">光說唔做</td><td class="vocab-meaning">talk jǐtāi tāk</td></tr>
-<tr><td class="vocab-cantonese">雞毛撢子打屁股</td><td class="vocab-meaning">tāhngtiu mān jyōyuhk</td></tr>
-<tr><td class="phrase-cantonese">嘻嘻哈哈</td><td class="vocab-meaning">saahpháh saahpháh · 愛理不理</td></tr>
-<tr><td class="vocab-cantonese">吃醋</td><td class="vocab-meaning">haapchou</td></tr>
-<tr><td class="vocab-cantonese">被吹</td><td class="vocab-meaning">denggβou（同男/女朋友）吹了</td></tr>
-<tr><td class="vocab-cantonese">挽復</td><td class="vocab-meaning">kūβou 試圖同分手嘅情人重修舊好</td></tr>
-<tr><td class="vocab-cantonese">揹債</td><td class="vocab-meaning">māōwhk 負起責任</td></tr>
-<tr><td class="vocab-cantonese">補救</td><td class="vocab-meaning">būūwhk 補救</td></tr>
-<tr><td class="vocab-cantonese">大錯</td><td class="vocab-meaning">daaihwhk 問題好嚴重</td></tr>
-<tr><td class="vocab-cantonese">九大簋</td><td class="vocab-meaning">九大菜，亦泛指菜好豐富</td></tr>
-</table>
-</section>
-
-<!-- 語音練習 -->
-<section>
-<h2 class="section-title">4 語音練習</h2>
-<div class="audio-bar">
-<p>🎧 粵普聲母相異字例（2）</p>
-<audio controls preload="none">
-<source src="../audio/Lesson02_5.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<h3 class="subsection-title">4.1 k-f</h3>
-<div class="phrase-row"><span class="phrase-cantonese">快</span><span class="phrase-pinyin">faai</span><span class="phrase-meaning">快速 faaichūk</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">塊</span><span class="phrase-pinyin">faai</span><span class="phrase-meaning">一塊 yāt faai</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">筷</span><span class="phrase-pinyin">faai</span><span class="phrase-meaning">筷子 faaiji</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">科</span><span class="phrase-pinyin">fō</span><span class="phrase-meaning">科技 fōgeih</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">課</span><span class="phrase-pinyin">fō</span><span class="phrase-meaning">功課 gūngfō</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">況</span><span class="phrase-pinyin">fong</span><span class="phrase-meaning">況且 fongché</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">苦</span><span class="phrase-pinyin">fù</span><span class="phrase-meaning">苦不堪言 fù băt hām yihn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">枯</span><span class="phrase-pinyin">fū</span><span class="phrase-meaning">枯燥 fūchou</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">款</span><span class="phrase-pinyin">fún</span><span class="phrase-meaning">提款機 tàihfún'gēi</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">寬</span><span class="phrase-pinyin">fūn</span><span class="phrase-meaning">寬恕 fūnsyu</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">闊</span><span class="phrase-pinyin">fut</span><span class="phrase-meaning">闊佬 futlóu</span></div>
-
-<h3 class="subsection-title">4.2 k-h</h3>
-<div class="phrase-row"><span class="phrase-cantonese">客</span><span class="phrase-pinyin">haak</span><span class="phrase-meaning">客氣 haakhei</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">考</span><span class="phrase-pinyin">háu</span><span class="phrase-meaning">考試 háausih</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">堪</span><span class="phrase-pinyin">hām</span><span class="phrase-meaning">難堪 nàahnhām</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">啱</span><span class="phrase-pinyin">háng</span><span class="phrase-meaning">唔啱 mháng</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">口</span><span class="phrase-pinyin">háu</span><span class="phrase-meaning">口多多 háudōdō</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">可</span><span class="phrase-pinyin">hó</span><span class="phrase-meaning">可惡 hówu</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">向</span><span class="phrase-pinyin">hon</span><span class="phrase-meaning">向錢看 heungchíhnhon</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">還</span><span class="phrase-pinyin">hān</span><span class="phrase-meaning">迴轉 jāuhōn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">康</span><span class="phrase-pinyin">hōng</span><span class="phrase-meaning">康樂 hōnglohk</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">渴</span><span class="phrase-pinyin">hot</span><span class="phrase-meaning">頸渴 gěnghot</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">哭</span><span class="phrase-pinyin">hūk</span><span class="phrase-meaning">一哭二餓三上吊 yāthūk yihngoh sāamséuhngdiu</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">孔</span><span class="phrase-pinyin">húng</span><span class="phrase-meaning">七孔流血 chāthúng lauhhyut</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">空</span><span class="phrase-pinyin">hūng</span><span class="phrase-meaning">四大皆空 seidaaihgāaihūng</span></div>
-
-<h3 class="subsection-title">4.3 k-l</h3>
-<div class="phrase-row"><span class="phrase-cantonese">檻</span><span class="phrase-pinyin">laahm</span><span class="phrase-meaning">門檻 mūhnlaahm</span></div>
-
-<h3 class="subsection-title">4.4 w-m</h3>
-<div class="phrase-row"><span class="phrase-cantonese">文</span><span class="phrase-pinyin">màhn</span><span class="phrase-meaning">文盲 màhnmàhng</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">聞</span><span class="phrase-pinyin">màhn</span><span class="phrase-meaning">聞風喪膽 màhntfing songdáam</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">吻</span><span class="phrase-pinyin">máhn</span><span class="phrase-meaning">吻合 máhnhahp</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">問</span><span class="phrase-pinyin">mahm</span><span class="phrase-meaning">問道於盲 mahndouh yūmàahng</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">襪</span><span class="phrase-pinyin">maht</span><span class="phrase-meaning">襪褲 mahtfu</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">物</span><span class="phrase-pinyin">maht</span><span class="phrase-meaning">物以罕為貴 maht yih hón wáih gwai</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">晚</span><span class="phrase-pinyin">máahn</span><span class="phrase-meaning">晚霞 máahnháh</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">萬</span><span class="phrase-pinyin">maaohn</span><span class="phrase-meaning">萬里長城 maaohnléih chèuhngsihng</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">微</span><span class="phrase-pinyin">mèih</span><span class="phrase-meaning">微乎其微 méihfūh kèihméih</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">尾</span><span class="phrase-pinyin">méih</span><span class="phrase-meaning">豬尾 jyūméih</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">未</span><span class="phrase-pinyin">meih</span><span class="phrase-meaning">末了緣 meihliuhyūhn</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">味</span><span class="phrase-pinyin">meih</span><span class="phrase-meaning">味道 meihdough</span></div>
-<div class="phrase-row"><span class="phrase-cantonese">望</span><span class="phrase-pinyin">mohng</span><span class="phrase-meaning">望子成龍 mohngji sihnglūhng</span></div>
-</section>
-
-<p class="footer">Generated by LeoneZhu</p>
+<button id="global-stop" title="停止所有音頻">❚❚</button>
 </body>
 </html>
