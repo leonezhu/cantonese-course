@@ -5,81 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>第1課 改善居住環境 — 粵語速成 中級</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: "Noto Serif TC", "Source Han Serif TC", "PMingLiu", serif; background: #fdfdfd; color: #333; line-height: 1.8; }
-.container { max-width: 800px; margin: 0 auto; padding: 20px; }
-h1 { font-size: 1.8em; text-align: center; margin: 30px 0 10px; color: #1a1a1a; }
-.subtitle { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.9em; }
-.section { margin: 40px 0; }
-.section-title { font-size: 1.4em; border-bottom: 2px solid #ddd; padding-bottom: 8px; margin-bottom: 20px; color: #222; }
-
-/* 课文 - 三栏对照 */
-.dialogue-block { margin: 20px 0; padding: 15px; background: #fafafa; border-radius: 8px; }
-.speaker { font-weight: bold; color: #c0392b; margin-bottom: 8px; font-size: 1.1em; }
-.line { display: flex; gap: 20px; margin: 8px 0; flex-wrap: wrap; }
-.pinyin { flex: 1; min-width: 250px; color: #666; font-size: 0.95em; }
-.cantonese { flex: 1; min-width: 250px; font-size: 1.1em; }
-.mandarin { flex: 1; min-width: 250px; color: #888; font-size: 0.95em; }
-
-/* 音频播放器 */
-.audio-bar { margin: 15px 0; display: flex; align-items: center; gap: 10px; }
-.audio-bar label { font-weight: bold; color: #555; white-space: nowrap; }
-.audio-bar audio { flex: 1; height: 40px; }
-.play-btn { background: #c0392b; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 0.9em; }
-.play-btn:hover { background: #a93226; }
-
-/* 词汇表 */
-.vocab-table { width: 100%; border-collapse: collapse; }
-.vocab-table th { background: #eee; padding: 10px; text-align: left; font-weight: bold; }
-.vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; }
-.vocab-table tr:hover { background: #f9f9f9; }
-.word { font-size: 1.1em; font-weight: bold; color: #2c3e50; }
-.jyutping { color: #888; font-size: 0.9em; }
-.meaning { color: #555; }
-
-/* 语音练习 */
-.phonetic-item { display: flex; gap: 20px; padding: 8px 0; border-bottom: 1px dotted #ddd; }
-.canto { font-weight: bold; color: #2c3e50; }
-.mand { color: #888; }
-.note { color: #aaa; font-size: 0.85em; }
-
-/* 情景对话 */
-.scenario-desc { background: #eef; padding: 15px; border-radius: 8px; margin-bottom: 15px; color: #444; }
-
-/* 导航 */
-.nav { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #eee; padding: 10px 0; z-index: 100; }
-.nav a { margin-right: 15px; text-decoration: none; color: #666; font-size: 0.9em; }
-.nav a:hover { color: #c0392b; }
-
-footer { text-align: center; margin-top: 60px; padding: 20px; color: #aaa; font-size: 0.8em; }
+*{ margin:0;padding:0;box-sizing:border-box; }
+body{ font-family:"Noto Serif TC","Source Han Serif TC","PMingLiu",serif;background:#fdfdfd;color:#333;line-height:1.8; }
+.container{ max-width:800px;margin:0 auto;padding:20px; }
+h1{ font-size:1.8em;text-align:center;margin:30px 0 10px; }
+.subtitle{ text-align:center;color:#888;margin-bottom:30px;font-size:0.9em; }
+.section{ margin:40px 0; }
+.section-title{ font-size:1.4em;border-bottom:2px solid #ddd;padding-bottom:8px;margin-bottom:20px; }
+.dialogue-block{ margin:20px 0;padding:15px;background:#fafafa;border-radius:8px; }
+.speaker{ font-weight:bold;color:#c0392b;margin-bottom:8px;font-size:1.1em; }
+.line{ display:flex;gap:20px;margin:8px 0;flex-wrap:wrap; }
+.pinyin{ flex:1;min-width:250px;color:#666;font-size:0.95em; }
+.cantonese{ flex:1;min-width:250px;font-size:1.1em; }
+.mandarin{ flex:1;min-width:250px;color:#888;font-size:0.95em; }
+.audio-bar{ margin:15px 0;display:flex;align-items:center;gap:10px; }
+.audio-bar label{ font-weight:bold;color:#555;white-space:nowrap; }
+.audio-bar audio{ flex:1;height:40px; }
+.vocab-table{ width:100%;border-collapse:collapse; }
+.vocab-table th{ background:#eee;padding:10px;text-align:left;font-weight:bold; }
+.vocab-table td{ padding:8px 10px;border-bottom:1px solid #eee; }
+.vocab-table tr:hover{ background:#f9f9f9; }
+.word{ font-size:1.1em;font-weight:bold;color:#2c3e50; }
+.jyutping{ color:#888;font-size:0.9em; }
+.meaning{ color:#555; }
+.scenario-desc{ background:#eef;padding:15px;border-radius:8px;margin-bottom:15px; }
+.nav{ position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;padding:10px 0;z-index:100; }
+.nav a{ margin-right:15px;text-decoration:none;color:#666;font-size:0.9em; }
+.nav a:hover{ color:#c0392b; }
+footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8em; }
 </style>
 </head>
 <body>
 <div class="container">
-
 <h1>第1課 改善居住環境</h1>
 <p class="subtitle">粵語速成 中級教材</p>
-
 <div class="nav">
   <a href="#lesson">課文</a>
-  <a href="#vocab">詞語</a>
+  <a href="#vocab">生詞</a>
+  <a href="#difficult">難讀字詞</a>
   <a href="#extra">附加詞彙</a>
-  <a href="#phonetic">語音練習</a>
   <a href="#scenario">情景說話練習</a>
 </div>
-
-<!-- ==================== 課文 ==================== -->
 <div class="section" id="lesson">
   <div class="section-title">1 課文</div>
-  
-  <div class="audio-bar">
-    <label>🔊 全文朗讀：</label>
-    <audio controls preload="none">
-      <source src="../audio/Lesson01_1.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-
-  <!-- 对话1 -->
+  <div class="audio-bar"><label>🔊 全文朗讀：</label><audio controls preload="none"><source src="../audio/Lesson01_1.mp3" type="audio/mpeg"></audio></div>
   <div class="dialogue-block">
     <div class="speaker">旁白</div>
     <div class="line"><span class="pinyin">Chàhn Ji-lèuhng lèuhng fùfùh háí daaihluhk jouhjó géinihn yéh, gāmnihn Ji-lèuhng gūngsi diuhjō kéuih fān Hèunggóng, kéuih jauh daaimāaih taataái Méih-lihng yàtcàih fānlāih la.</span></div>
@@ -177,92 +146,139 @@ footer { text-align: center; margin-top: 60px; padding: 20px; color: #aaa; font-
     <div class="line"><span class="cantonese">陳先生想租居咗的攪樓呢？</span></div>
     <div class="line"><span class="mandarin">陈先生想租居咗的搅楼呢？</span></div>
   </div>
+
 </div>
-
-<!-- ==================== 詞語 ==================== -->
 <div class="section" id="vocab">
-  <div class="section-title">2 詞語</div>
-  
-  <div class="audio-bar">
-    <label>🔊 詞語朗讀：</label>
-    <audio controls preload="none">
-      <source src="../audio/Lesson01_2.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-
+  <div class="section-title">2.1 生詞</div>
+  <div class="audio-bar"><label>🔊 生詞朗讀：</label><audio controls preload="none"><source src="../audio/Lesson01_2.mp3" type="audio/mpeg"></audio></div>
   <table class="vocab-table">
     <tr><th>詞語</th><th>粵拼</th><th>釋義</th></tr>
-    <tr><td class="word">調嚟</td><td class="jyutping">tiu3 lei5</td><td class="meaning">調過來</td></tr>
-    <tr><td class="word">一齊</td><td class="jyutping">jat1 cai2</td><td class="meaning">一起</td></tr>
-    <tr><td class="word">屋邨</td><td class="jyutping">uk1 cun1</td><td class="meaning">屋村，由政府建的公共房屋</td></tr>
-    <tr><td class="word">居屋</td><td class="jyutping">geoi1 uk1</td><td class="meaning">政府資助的出售房屋</td></tr>
-    <tr><td class="word">單位</td><td class="jyutping">dan1 wai2</td><td class="meaning">公寓，住宅單位</td></tr>
-    <tr><td class="word">幾間落</td><td class="jyutping">gei3 fun1 lok6</td><td class="meaning">相當寬敞</td></tr>
-    <tr><td class="word">捨得</td><td class="jyutping">saam2 dak1</td><td class="meaning">忍心，捨不得</td></tr>
-    <tr><td class="word">屋苑</td><td class="jyutping">uk1 jyun2</td><td class="meaning">私人屋苑，高檔住宅區</td></tr>
-    <tr><td class="word">律師費</td><td class="jyutping">lei5 si1 fai3</td><td class="meaning">律師費用</td></tr>
-    <tr><td class="word">經紀佣金</td><td class="jyutping">ging1 gei3 zung1 gam1</td><td class="meaning">中介佣金</td></tr>
-    <tr><td class="word">裝修</td><td class="jyutping">zung1 sin1</td><td class="meaning">裝潢，裝修</td></tr>
+    <tr><td class="word">居住環境</td><td class="jyutping">geuijiyuṳṁ wàahngíng</td><td class="meaning">居住條件</td></tr>
+    <tr><td class="word">屋邨</td><td class="jyutping">ūkchyūn / ngūkchyūn</td><td class="meaning">住宅小區，尤指政府公屋</td></tr>
+    <tr><td class="word">閎落</td><td class="jyutping">futlohk</td><td class="meaning">寬敞</td></tr>
+    <tr><td class="word">撇開</td><td class="jyutping">bünhoi</td><td class="meaning">搬出去</td></tr>
+    <tr><td class="word">邊狹</td><td class="jyutping">bíkgihp</td><td class="meaning">狹小，擠</td></tr>
+    <tr><td class="word">招呼</td><td class="jyutping">jīufū</td><td class="meaning">招待，接待</td></tr>
+    <tr><td class="word">呷片</td><td class="jyutping">kāatpīn</td><td class="meaning">名片</td></tr>
+    <tr><td class="word">開揚</td><td class="jyutping">hōiyèuhng</td><td class="meaning">視線無阻擋，敞亮</td></tr>
+    <tr><td class="word">睡房</td><td class="jyutping">seuīhfōng</td><td class="meaning">臥室</td></tr>
+    <tr><td class="word">沖涼房</td><td class="jyutping">chūnglèuhngfōng</td><td class="meaning">浴室</td></tr>
+    <tr><td class="word">業主</td><td class="jyutping">yihp jyǖ</td><td class="meaning">房主；房東</td></tr>
+    <tr><td class="word">放盤</td><td class="jyutping">fongpǒn</td><td class="meaning">把物業放到市場上出售或出租</td></tr>
+    <tr><td class="word">油站</td><td class="jyutping">yàu hjaahm</td><td class="meaning">加油站</td></tr>
+    <tr><td class="word">車房</td><td class="jyutping">chefohng</td><td class="meaning">汽車維修站</td></tr>
+    <tr><td class="word">粒</td><td class="jyutping">lip</td><td class="meaning">升降機，電梯</td></tr>
+    <tr><td class="word">跟住</td><td class="jyutping">ganjyuh</td><td class="meaning">接着，然後</td></tr>
+    <tr><td class="word">另計</td><td class="jyutping">lihnggai</td><td class="meaning">另算</td></tr>
+    <tr><td class="word">落訂</td><td class="jyutping">lohkdehng</td><td class="meaning">付訂金</td></tr>
+    <tr><td class="word">鎖匙</td><td class="jyutping">sósih</td><td class="meaning">鑰匙</td></tr>
+    <tr><td class="word">夾手夾腳</td><td class="jyutping">gaapsáu gaapgeuk</td><td class="meaning">一起動手</td></tr>
+    <tr><td class="word">堵</td><td class="jyutping">buhng</td><td class="meaning">牆的量詞</td></tr>
+    <tr><td class="word">啲</td><td class="jyutping">nihm</td><td class="meaning">貼</td></tr>
+    <tr><td class="word">鬆灰水</td><td class="jyutping">yau h fuísúi</td><td class="meaning">刷牆</td></tr>
+    <tr><td class="word">士多房</td><td class="jyutping">sihdofohng</td><td class="meaning">儲物間</td></tr>
+    <tr><td class="word">間開</td><td class="jyutping">gaanhoi</td><td class="meaning">隔開</td></tr>
+    <tr><td class="word">光猛</td><td class="jyutping">gwohngmaa hng</td><td class="meaning">亮堂</td></tr>
+    <tr><td class="word">講開又講</td><td class="jyutping">gonghoi yau h gong</td><td class="meaning">說起來</td></tr>
+    <tr><td class="word">板間房</td><td class="jyutping">baa ngaanh fong</td><td class="meaning">房中房</td></tr>
+    <tr><td class="word">搬屋</td><td class="jyutping">bün`ük / būngūk</td><td class="meaning">搬家</td></tr>
+    <tr><td class="word">幫手</td><td class="jyutping">bōngsáu</td><td class="meaning">幫忙；幫忙的人，幫手</td></tr>
+    <tr><td class="word">成資人</td><td class="jyutping">sēhngdau yāhn /</td><td class="meaning">一家子（人）</td></tr>
   </table>
 </div>
-
-<!-- ==================== 附加詞彙 ==================== -->
+<div class="section" id="difficult">
+  <div class="section-title">2.2 難讀字詞</div>
+  <table class="vocab-table">
+    <tr><th>字詞</th><th>粵拼</th></tr>
+    <tr><td class="word">chǐngfū</td><td class="jyutping">稱呼</td></tr>
+    <tr><td class="word">Baakgāai</td><td class="jyutping">百佳</td></tr>
+    <tr><td class="word">gáaikyut</td><td class="jyutping">解決</td></tr>
+    <tr><td class="word">chaak</td><td class="jyutping">拆</td></tr>
+    <tr><td class="word">chēunglim</td><td class="jyutping">窗簾</td></tr>
+    <tr><td class="word">hòng</td><td class="jyutping">行</td></tr>
+    <tr><td class="word">hòuhwāh</td><td class="jyutping">豪華</td></tr>
+    <tr><td class="word">pàhnfuyùhnsyùh</td><td class="jyutping">貧富懸殊</td></tr>
+    <tr><td class="word">kùhngyāhn</td><td class="jyutping">窮人</td></tr>
+  </table>
+</div>
 <div class="section" id="extra">
   <div class="section-title">3 附加詞彙</div>
-  
-  <div class="audio-bar">
-    <label>🔊 附加詞彙：</label>
-    <audio controls preload="none">
-      <source src="../audio/Lesson01_4.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-
+  <div class="audio-bar"><label>🔊 附加詞彙：</label><audio controls preload="none"><source src="../audio/Lesson01_4.mp3" type="audio/mpeg"></audio></div>
+  <h3 style="margin:20px 0 10px;color:#555;">3.1 家居與裝修</h3>
   <table class="vocab-table">
-    <tr><th>詞語</th><th>粵拼</th><th>釋義</th></tr>
-    <tr><td class="word">樓價</td><td class="jyutping">lau5 gaa3</td><td class="meaning">樓宇價格</td></tr>
-    <tr><td class="word">按揭</td><td class="jyutping">aat3 gok3</td><td class="meaning">抵押貸款</td></tr>
-    <tr><td class="word">分期付款</td><td class="jyutping">fun1 cit1 coi4 faan3</td><td class="meaning">分期支付</td></tr>
-    <tr><td class="word">物業管理</td><td class="jyutping">mat6 je5 gin2 lei5</td><td class="meaning">物業管理</td></tr>
-    <tr><td class="word">公積金</td><td class="jyutping">gung1 zak1 gam1</td><td class="meaning">住房公積金</td></tr>
+    <tr><th>詞語</th><th>粵拼</th></tr>
+    <tr><td class="word">地氈</td><td class="jyutping">deihǐn</td></tr>
+    <tr><td class="word">階梯</td><td class="jyutping">gāaijyūn</td></tr>
+    <tr><td class="word">柚木地板</td><td class="jyutping">yáumuhk deihbāan</td></tr>
+    <tr><td class="word">雲石</td><td class="jyutping">wāhnsehk</td></tr>
+    <tr><td class="word">天台</td><td class="jyutping">tīntói</td></tr>
+    <tr><td class="word">露台</td><td class="jyutping">louhtòih</td></tr>
+    <tr><td class="word">鋅盆</td><td class="jyutping">sīngpùhn</td></tr>
+    <tr><td class="word">花灑</td><td class="jyutping">fāsá</td></tr>
+    <tr><td class="word">浴缸</td><td class="jyutping">yuhkgōng</td></tr>
+    <tr><td class="word">企缸</td><td class="jyutping">kéihgōng</td></tr>
+    <tr><td class="word">水喉</td><td class="jyutping">séui’hàuh</td></tr>
+    <tr><td class="word">水龍頭</td><td class="jyutping">séuilùhngtàuh</td></tr>
+    <tr><td class="word">水掣</td><td class="jyutping">séuijai</td></tr>
+    <tr><td class="word">電掣</td><td class="jyutping">dihnjai</td></tr>
+    <tr><td class="word">鋁窗</td><td class="jyutping">léuihchēung</td></tr>
+    <tr><td class="word">鐵閘</td><td class="jyutping">titjaahp</td></tr>
+    <tr><td class="word">玻璃</td><td class="jyutping">bōlěi</td></tr>
+    <tr><td class="word">打通</td><td class="jyutping">dátūng</td></tr>
+    <tr><td class="word">漏水</td><td class="jyutping">lauhséui</td></tr>
+    <tr><td class="word">罅</td><td class="jyutping">la</td></tr>
+    <tr><td class="word">窿</td><td class="jyutping">lūng</td></tr>
+    <tr><td class="word">烏煙瘴氣</td><td class="jyutping">wūyīnjeunghei</td></tr>
+    <tr><td class="word">執手尾</td><td class="jyutping">jāp sāuméih</td></tr>
+  </table>
+  <h3 style="margin:20px 0 10px;color:#555;">3.2 傢俬與電器</h3>
+  <table class="vocab-table">
+    <tr><th>詞語</th><th>粵拼</th></tr>
+    <tr><td class="word">梳化</td><td class="jyutping">sōfā</td></tr>
+    <tr><td class="word">茶几</td><td class="jyutping">chàhgēi</td></tr>
+    <tr><td class="word">餐桌</td><td class="jyutping">chāantói</td></tr>
+    <tr><td class="word">凳</td><td class="jyutping">dang</td></tr>
+    <tr><td class="word">挨拼椅</td><td class="jyutping">āipēngyi / ngāaipēngyi</td></tr>
+    <tr><td class="word">挨拼凳</td><td class="jyutping">āipēngdang / ngāaipēngdang</td></tr>
+    <tr><td class="word">吊櫃</td><td class="jyutping">diugwaih</td></tr>
+    <tr><td class="word">碌架牀</td><td class="jyutping">lūkgaachōhng</td></tr>
+    <tr><td class="word">梳妝枱</td><td class="jyutping">sōjōngtóí</td></tr>
+    <tr><td class="word">牀頭櫃</td><td class="jyutping">chōhngtàuhgwaih</td></tr>
+    <tr><td class="word">糞桶</td><td class="jyutping">gwaihtūng</td></tr>
+    <tr><td class="word">鉸</td><td class="jyutping">geng</td></tr>
+    <tr><td class="word">咕順</td><td class="jyutping">kūsēun 熱水爐 yihtséuilōuh</td></tr>
+    <tr><td class="word">鏡架</td><td class="jyutping">genggá 抽氣扇 chāuheisin</td></tr>
+    <tr><td class="word">花樽</td><td class="jyutping">fājēun 電磁爐 dihnhchihlōuh</td></tr>
+    <tr><td class="word">座地燈</td><td class="jyutping">johdeihdāng 微波爐 méihbōlōuh</td></tr>
+    <tr><td class="word">座枱燈</td><td class="jyutping">johtóidāng 石油氣爐 sehkyàuhhei lōuh</td></tr>
+    <tr><td class="word">雪櫃</td><td class="jyutping">syutgwaih 煮食爐 jyúsihklōuh</td></tr>
+    <tr><td class="word">風筒</td><td class="jyutping">fūngtóng 拖板 tōbán</td></tr>
+    <tr><td class="word">風扇</td><td class="jyutping">fūngsin 插座 chaapjoh / chaapjó</td></tr>
+    <tr><td class="word">抽濕機</td><td class="jyutping">chāusāpgēi 插頭 chaaptāuh / chaaptáu</td></tr>
+    <tr><td class="word">吸塵機</td><td class="jyutping">kāpchāhngēi</td></tr>
+  </table>
+  <h3 style="margin:20px 0 10px;color:#555;">3.3 工具及其使用</h3>
+  <table class="vocab-table">
+    <tr><th>詞語</th><th>粵拼</th></tr>
+    <tr><td class="word">鉗</td><td class="jyutping">kím 鉗 kihm</td></tr>
+    <tr><td class="word">刨</td><td class="jyutping">páau 刨 pàauh</td></tr>
+    <tr><td class="word">釘</td><td class="jyutping">dēng 釘 dēng</td></tr>
+    <tr><td class="word">鑿</td><td class="jyutping">jók 鑿 johk</td></tr>
+    <tr><td class="word">鋸</td><td class="jyutping">geu 鋸 geu</td></tr>
+    <tr><td class="word">夾</td><td class="jyutping">gáap / gip 夾 gaahp / gihp</td></tr>
+    <tr><td class="word">鑷</td><td class="jyutping">jyun 鑷 jyun</td></tr>
+    <tr><td class="word">刀</td><td class="jyutping">dǒu 鍜 gaai</td></tr>
+    <tr><td class="word">錘</td><td class="jyutping">chéui 枕 dáml / dahp</td></tr>
+    <tr><td class="word">士巴拿</td><td class="jyutping">sihbalá 擰 ning / nihng</td></tr>
+    <tr><td class="word">螺絲批</td><td class="jyutping">lohsi'pái 擰 ning / nihng</td></tr>
   </table>
 </div>
-
-<!-- ==================== 語音練習 ==================== -->
-<div class="section" id="phonetic">
-  <div class="section-title">4 語音練習：粵普聲母相異字例（1）</div>
-  
-  <div class="audio-bar">
-    <label>🔊 語音練習：</label>
-    <audio controls preload="none">
-      <source src="../audio/Lesson01_3.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-
-  <div class="phonetic-item">
-    <span class="canto">粵：f → 普：h</span>
-    <span class="note">風（fung1）→ 普通話 hēng</span>
-  </div>
-  <div class="phonetic-item">
-    <span class="canto">粵：s → 普：sh</span>
-    <span class="note">書（syu1）→ 普通話 shū</span>
-  </div>
-</div>
-
-<!-- ==================== 情景說話練習 ==================== -->
 <div class="section" id="scenario">
   <div class="section-title">5 情景說話練習</div>
-  
-  <div class="audio-bar">
-    <label>🔊 情景對話：</label>
-    <audio controls preload="none">
-      <source src="../audio/Lesson01_5.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-
+  <div class="audio-bar"><label>🔊 情景對話：</label><audio controls preload="none"><source src="../audio/Lesson01_5.mp3" type="audio/mpeg"></audio></div>
   <div class="scenario-desc">
     郭先生同郭太太想搬屋。佢哋去一間地產公司同經紀周小姐傾租樓嘅事。郭生同郭太問到各區樓嘅租金同居住環境，周小姐就一一解答佢哋嘅問題。請三位同學分別扮演呢三個角色，進行對話。
   </div>
-
   <div class="dialogue-block">
     <div class="speaker">郭先生</div>
     <div class="line"><span class="cantonese">我想租間兩房一廳嘅單位，預算三千蚊一個月，可以嗎？</span></div>
@@ -272,12 +288,9 @@ footer { text-align: center; margin-top: 60px; padding: 20px; color: #aaa; font-
     <div class="speaker">周小姐</div>
     <div class="line"><span class="cantonese">當然可以！我幫你搵下。你呢個預算可以租到不錯嘅地方。</span></div>
   </div>
+
 </div>
-
-<footer>
-  粵語速成 中級教材 · 第1課 · Generated by Cantonese Course Builder
-</footer>
-
+<footer>粵語速成 中級教材 · 第1課 · Generated by Cantonese Course Builder</footer>
 </div>
 </body>
 </html>
