@@ -33,6 +33,8 @@ h1{ font-size:1.8em;text-align:center;margin:30px 0 10px; }
 .nav a{ margin-right:15px;text-decoration:none;color:#666;font-size:0.9em; }
 .nav a:hover{ color:#c0392b; }
 footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8em; }
+.phonetic-table td{ padding:6px 10px;border-bottom:1px solid #eee; }
+.phonetic-table td:first-child{ font-weight:bold; }
 </style>
 </head>
 <body>
@@ -44,11 +46,15 @@ footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8e
   <a href="#vocab">生詞</a>
   <a href="#difficult">難讀字詞</a>
   <a href="#extra">附加詞彙</a>
+  <a href="#phonetic">語音練習</a>
   <a href="#scenario">情景說話練習</a>
 </div>
+
+<!-- ======================== SECTION 1: 課文 ======================== -->
 <div class="section" id="lesson">
   <div class="section-title">1 課文</div>
   <div class="audio-bar"><label>🔊 全文朗讀：</label><audio controls preload="none"><source src="../audio/Lesson01_1.mp3" type="audio/mpeg"></audio></div>
+
   <div class="dialogue-block">
     <div class="speaker">旁白</div>
     <div class="line"><span class="pinyin">Chàhn Ji-lèuhng lèuhng fùfùh háí daaihluhk jouhjó géinihn yéh, gāmnihn Ji-lèuhng gūngsi diuhjō kéuih fān Hèunggóng, kéuih jauh daaimāaih taataái Méih-lihng yàtcàih fānlāih la.</span></div>
@@ -73,7 +79,7 @@ footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8e
   <div class="dialogue-block">
     <div class="speaker">媽媽</div>
     <div class="line"><span class="pinyin">Néihdeih gamdō nihn móuh háí ùkkéi, fāandoulāih ganghái tùhng dēiðih māmhī yàtcái jyuh ge lā, jouh māt jihgéi būnhōi jē?</span></div>
-    <div class="line"><span class="cantonese">你哋咁多年有嘅屋企，返到嚟梗係同爹爹媽媽咪一齊住㗎啦，做乜自己搬開㗎？</span></div>
+    <div class="line"><span class="cantonese">你哋咁多年有嘅屋企，返到嚟梗係同爹爹媽媽一齊住㗎啦，做乜自己搬開㗎？</span></div>
     <div class="line"><span class="mandarin">你们这么多年有的家，回来当然同爸爸妈妈一起住的啦，做什么自己搬开呢？</span></div>
   </div>
 
@@ -86,7 +92,7 @@ footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8e
 
   <div class="dialogue-block">
     <div class="speaker">老陳</div>
-    <div class="line"><span class="pinyin">Tái yihgā go láuhsih, juhng yáuhoodāk sîng a, bàtyuh chánjúu gûngfāan chàhng lâ!</span></div>
+    <div class="line"><span class="pinyin">Tái yihgā go láuhsih, juhng yáuhoodāk sīng a, bàtyuh chánjúu gûngfāan chàhng lâ!</span></div>
     <div class="line"><span class="cantonese">睇而家個樓市，仲有得升呀，不如趁早供返層啦！</span></div>
     <div class="line"><span class="mandarin">看现在的楼市，还有得升呀，不如趁早供返层楼啦！</span></div>
   </div>
@@ -100,22 +106,22 @@ footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8e
 
   <div class="dialogue-block">
     <div class="speaker">老陳</div>
-    <div class="line"><span class="pinyin">Jôu láu dôu yiu béis gînggái yûnggām ge bo. Néihdeih heui deihcháan gûngsí mahnháh sîn, yùhgwo yiu jôngsáu, ngóh hôyih bông néihdeih ge.</span></div>
-    <div class="line"><span class="cantonese">租樓都要俾經紀佣金畀嘅。你們去地產公司問吓先，如果要裝修，我可以幫你哋嘅。</span></div>
+    <div class="line"><span class="pinyin">Jōu láu dôu yiu béis gînggái yûnggām ge bo. Néihdeih heui deihcháan gūngsí mahnháh sîn, yùhgwo yiu jôngsáu, ngóh hôyih bông néihdeih ge.</span></div>
+    <div class="line"><span class="cantonese">租樓都要俾經紀佣金既嘛。你哋去地產公司問吓先，如果要裝修，我可以幫你哋嘅。</span></div>
     <div class="line"><span class="mandarin">租楼都要给经纪佣金的。你们去地产公司问吓先，如果要装修，我可以帮你们的。</span></div>
   </div>
 
   <div class="dialogue-block">
     <div class="speaker">旁白</div>
-    <div class="line"><span class="pinyin">Daihyih yaht, Ji-lèuhng tùhng Méih-lihng gáanjó gáan seunyuh hóu ge deihcháan gûngsí háahng yahpheui, yáu go gînggái Wòhng sînsâang chèutlâih jîufû kéuihdeih.</span></div>
-    <div class="line"><span class="cantonese">第二日，志良同美玲搵開間信譽好嘅地產公司行入去，有個經紀黃先生出來招呼佢哋。</span></div>
+    <div class="line"><span class="pinyin">Daihyih yaht, Ji-lèuhng tùhng Méih-lihng gáanjó gáan seunyuh hóu ge deihtchāan gūngsí háahng yahpheui, yáu go gînggái Wòhng sīnsāang chētlaaih jiūfù kéuihdeih.</span></div>
+    <div class="line"><span class="cantonese">第二日，志良同美玲喺間信譽好嘅地產公司行入去，有個經紀黃先生出嚟招呼佢哋。</span></div>
     <div class="line"><span class="mandarin">第二天，志良和美玲想找间信誉好的地产公司行进去，有个经纪黄先生出来招呼他们。</span></div>
   </div>
 
   <div class="dialogue-block">
     <div class="speaker">黃先生</div>
     <div class="line"><span class="pinyin">Yáuìh mâtýéh hôyih bôngdóu lèuhngwái nê? Nijèung haih ngóh ge kāatpin.</span></div>
-    <div class="line"><span class="cantonese">有乜野可以幫倒兩位呢？呢張係我嘅名片。</span></div>
+    <div class="line"><span class="cantonese">有乜野可以幫倒兩位呢？呢張係我哋咭片。</span></div>
     <div class="line"><span class="mandarin">有什么可以帮到两位呢？这张是我的名片。</span></div>
   </div>
 
@@ -128,7 +134,7 @@ footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8e
 
   <div class="dialogue-block">
     <div class="speaker">黃先生</div>
-    <div class="line"><span class="pinyin">Dim chîngfû sînsâang néih nê?</span></div>
+    <div class="line"><span class="pinyin">Dim chîngfû sînsāang néih nê?</span></div>
     <div class="line"><span class="cantonese">點稱呼先生你呢？</span></div>
     <div class="line"><span class="mandarin">怎么称呼先生你呢？</span></div>
   </div>
@@ -142,12 +148,98 @@ footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8e
 
   <div class="dialogue-block">
     <div class="speaker">黃先生</div>
-    <div class="line"><span class="pinyin">Can4 sin1 sang1 soeng2 zau1 geoi1 zo2 ge3 giu3 lau5 ne1?</span></div>
-    <div class="line"><span class="cantonese">陳先生想租居咗的攪樓呢？</span></div>
-    <div class="line"><span class="mandarin">陈先生想租居咗的搅楼呢？</span></div>
+    <div class="line"><span class="pinyin">Chàhn sāang séung ĵou chàhng dīmyéung ge láu gám nê?</span></div>
+    <div class="line"><span class="cantonese">陳生想租層貼樣嘅樓呢？</span></div>
+    <div class="line"><span class="mandarin">陈先生想租层样板房呢？</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">志良</div>
+    <div class="line"><span class="pinyin">Ngóhděih séung ĵou go baat gáu baak chèk dóu ge dāanwáí, yiu hōiyéuhngdí, jihngdí ge. Heangnáahm jih jeiuho lā. Seuihfōng léuhngggān jauh gau la, chyūhfōng tùhng chūngleuhngfōng nhōu taai sai.</span></div>
+    <div class="line"><span class="cantonese">我哋想租個八九百尺嘅單位，要開揚啲、靜啲嘅，向南就最好啦。睡房兩間就夠嗰，廚房同沖涼房唔好太細。</span></div>
+    <div class="line"><span class="mandarin">我们想租个八九百尺的单位，要开扬些、静些的，向南就最好啦。睡房两间就够了，厨房和浴室不要太细。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">黃先生</div>
+    <div class="line"><span class="pinyin">Āam la, ngóhděih yáuh yihpjyú fongjō géigo pún, hóu āam Chàhn sāang néih, yátjzāan hōyh daai néihděih heui táiháh. Nīgo ūkyún jānhaih hōu rhco ga, wohng jung daai jing, gāautūng fōngbihn, fuhgahn yáuh go hóudaaih ge Baakgaądī tùhng gāaisih, yáuh yáuhjaahm tùhng chéfōhng. Yahpbin yáuh tīnghchēchēuhng, yáuh go hōu daaih ge fáyún, yáuh jyuhaak wuihsō, wihngcheih, mōhngkáuchchēuhng, ghinsānsāt dāngdāng. Dī chitsī yauh sǎn, géi bouh līp dōuhaih sānjing ge.</span></div>
+    <div class="line"><span class="cantonese">喺呀，我哋有業主放咗幾個盤，好啱陳生你，一陣間可以帶你睇吓。呢個屋苑真係好唔錯㗎，旺中帶靜，交通方便，附近有個好大嘅百佳同街市，有油站同車房。入便有停車場，有個好大嘅花園，有住客會所、泳池、網球場、健身室等等。啲設施又新，幾部轆都係新整嘅。</span></div>
+    <div class="line"><span class="mandarin">是啊，我们有业主放了几个盘，好合适陈先生你，一阵间可以带你去看一下。这个屋苑真系很不错啊，旺中带静，交通方便，附近有个好大的百佳同街市，有加油站同车房。入便有停车场，有个好大的花园，有住客会所、泳池、网球场、健身室等等。些设施又新，几部车都系新整的。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Wònghng sīnsāang gānjyuh dájó géigo dihnwá, yehkŭ di yihpjyú, jauh daai kéuhděih heui táí láau. NT léuhng sāam yahrt kéuhděih yátguhng tajjó sahpgéi go dānwáí, jéutj wándou yátgaan séungdōng hahpsík ge. Séuiyihn gógo dānwáí móuh māt jōngsáu, daahnhaih hōu gōnjehng, yáuchchāih sehngngūk dihneh, chyūhfōng léuhbihn syutgwaih, sāiyigéi, jyúsiklōuh yeuhgyeyuhng dōu yáuh. Yíché go dānwáí heung dūngnáahm, mōhngdóu fáyún tùhng wihngchih. Baatbaakgéi chèk maahnyát mān jōu, gūnléhfaí, cháihéung chyúhn báau, séui dihng lihnggai. Kéuhděih lohko déhng, daihyih yaht, jauh tùhng go yihpjyú hái deihcháan gūngsí chīmjo léuhngihin jōuyek, gáaikyutjó jyuh ge mahntáih.</span></div>
+    <div class="line"><span class="cantonese">黃先生跟住打咗幾個電話，約好啲業主，就帶佢哋去睇樓。呢兩三日佢哋一共睇咗十幾個單位，卒之搵到一間相當合適嘅。雖然個個單位已有裝修，但係好乾淨，有齊成屋電器，廚房裏便雪櫃、洗衣機、煮食爐樣樣都有。而且個單位向東南，望到花園同泳池。八百幾尺萬一蚊租，管理費、差餉全包，水電另計。佢哋落咗訂，第二日，就同個業主同地產公司簽咗兩年租約，解決咗住嘅問題。</span></div>
+    <div class="line"><span class="mandarin">黄先生跟着打了几个电话，约好了些业主，就带他们去看楼。这两三日他们一共看了十几个单位，终于搵到一间相当合适的。虽然个个单位已有装修，但是好干净，有齐全屋电器，厨房里便雪柜、洗衣机、煮食炉样样都有。而且个单位向东南，望到花园同泳池。八百几尺万蚊租，管理费、差饷全包，水电另计。他们落了订，第二日，就同个业主同地产公司签了两年租约，解决了住的问题。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Lâihbaaiyaht, kéuihdeih dá dihnwá béisûhng gūngsí aaijó ga chè, yauh chénghiǒ géigo pàhngyáo bǒngsáu. yátyaht jauhh būnhǒusaai la. Méih-lihng juhng hái haakténg gwahéi léuhngfūk fùnggingwá, báijǒ léuhng pàhn pùhnjōi, chèng ngoihibh yauhh mōhngdóu go fàyun, gogo dōu wah kéuihdeih ge sāngēui hōu leng, hóu syúfuhk.</span></div>
+    <div class="line"><span class="cantonese">志良美玲下個禮拜就有新屋嘅鎖匙噠，所以今晚食完飯之後，佢哋傾起點樣裝修佈置新居。禮拜日，佢地打電話俾搬屋公司嗌啲架車，又請啲幾個朋友幫手，一日就搬好晒嘢。美玲仲喺客廳掛起兩幅風景畫，擺咗兩盆盆栽，窗外便又望到個花園，個個都話佢地啱新居好靚，好舒服。</span></div>
+    <div class="line"><span class="mandarin">志良美玲下个礼拜就有新屋的锁匙啦，所以今晚食完饭之后，他们倾起点样装修布置新居。礼拜日，他们打电话畀搬屋公司叫了辆车，又请了几个朋友帮手，一日就搬好晒嘢。美玲仲喺客厅挂起两幅风景画，摆了兩盆盆栽，窗外便又望到个花园，个个都话他们啱新居好靓，好舒服。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">志良</div>
+    <div class="line"><span class="pinyin">Méih-lihngg, nēih wah góchāhng lāu sāi nísái jōngsáu a?</span></div>
+    <div class="line"><span class="cantonese">美玲，你話啲層樓使唔使裝修呀？</span></div>
+    <div class="line"><span class="mandarin">美玲，你话啲层楼使唔使装修呀？</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">美玲</div>
+    <div class="line"><span class="pinyin">Gānghaih yiu lāi! Sēuyīhn chāhng lau haih jōu ge, daahnhaih ngōhdeih dǒu séung jyuhdāksyùsyū fuhkfuhk gā, yīhchē bàhbā yauh wah hōyīh bōng ngōhdeih jōngsáu tīm. Nēih chéng géiyaht ga bōnghāh kèuih, ngǒh fongjí gǔng lāihmāaih bōngsáu, daaihǒgaa gsapsáu gaapgeuk jouh maih dāks lō!</span></div>
+    <div class="line"><span class="cantonese">使係要啦！雖然層樓係租嘅，但係我哋都想住得好舒服服喔，而且爸爸又話可以幫我哋裝修添。你請幾日假幫吓佢，我放咗工嚟埋幫手，大家夾手夾腳做咪得囉！</span></div>
+    <div class="line"><span class="mandarin">使系要啦！虽然层楼系租嘅，但我们都想住得好舒服喔，而且爸爸又话可以帮我哋装修添。你请几日假帮吓佢，我放咗工嚟埋帮手，大家夹手夹脚做咪得啰！</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">志良</div>
+    <div class="line"><span class="pinyin">Dǒu āam gé. Gām buhng chéuhng dím jǐng hōu nē?</span></div>
+    <div class="line"><span class="cantonese">都啱嘅。咁場牆點整好呢？</span></div>
+    <div class="line"><span class="mandarin">都啱嘅。咁面墙点整好呢？</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">美玲</div>
+    <div class="line"><span class="pinyin">Nīhm chéuhngjī lā, nīhm chéuhngjī lenggwo yāuh fūiséui, jeui hōu tīnfā̀baan dōu nīhmmaaih. Jyúyāhn fóng pǒu deihjín, syūfūhkdi; go tēng tùhng lihngngoih léuhnggān seuīhfōng ge yáumuhk deihbāan dāhāh laahp jauh dāks la. Gāan daaih fóng gōi jouh syūfóng, sai gǒ gāan hōyīh chaakjǒ jēung chǒhng, gōi jouh sihhdǒfong. Go tēng gam daaih, bātyúh gaanhsī kèuih, gōbihn jouh faahnténg, nībihn jouh haa kténg.</span></div>
+    <div class="line"><span class="cantonese">噉牆紙啦，啲牆紙靚過鬆灰水，最好天花板都嚟埋。主人房鋪地氈，舒服啲；個廳同另外兩間睡房啲木板枱打吓蚷就得嘅。開大房改做書房，細啲間可以拆咗張牀，改做士多房。個廳咁大，不如開闊佢，啲佢做飯廳，呢做客廳。</span></div>
+    <div class="line"><span class="mandarin">咁墙纸啦，啲墙纸靓过松灰水，最好天花板都嚟埋。主人房铺地毡，舒服啲；个厅同另外两间睡房啲木板台打吓蚷就得嘅。开大房改做书房，细啲间可以拆咗张床，改做士多房。个厅咁大，不如开阔佢，隔佢做饭厅，呢做客厅。</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">志良</div>
+    <div class="line"><span class="pinyin">Syútông leuihbihnhói báai leuhngnjéung syútói, leuhnggo syúgwaih waahkjé syúgā. Jyiyāhnfòng yíngg yáh leuhnggoo daaih yígwaaih, juhgyáh géigo gwaítihng, ngōh nám gau báai ngōhdeih dì sām ge la. Haakténgdouh yiu báai jéung sófa túhg fong jéung chāhgéi. Faahnténg, ngōh jauh séung báai jéung yúhngé cháantói. Haih la, ngōhdeih máaih mātyéh dāng hóu a?</span></div>
+    <div class="line"><span class="cantonese">書房裏便可以擺兩張書枱，兩個書櫃或者書架。主人房已經有兩個大衣櫃，仲有幾個櫥桶，我認夠擺我哋嘅衫嘅噃。客應係要擺張梳化同放張茶几。飯廳我就想擺張圓既餐枱。係咪，我哋買乜野燈好呀？</span></div>
+    <div class="line"><span class="mandarin">书房里就可以摆两张书台，两个书柜或者书架。主人房已经有两个大衣柜，仲有几个橱柜，我认够摆我哋嘅衫嘅啦。客厅应係要摆张梳化同放张茶几。饭厅我就想摆张圆既餐台。係咪，我哋买乜野灯好呀？</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">美玲</div>
+    <div class="line"><span class="pinyin">Haakténg yuhng séhdāng, faahnténg yuhng diudāng, gāmjauh gausaai gwóngmāhng lā. Haih la, inhóu mgeidāk, ngōhdeih juhng yiu māaih chéunglim bo...</span></div>
+    <div class="line"><span class="cantonese">客廳用射燈，飯廳用吊燈，啲就夠晒光猛啦。係唔，唔好唔記得，我哋仲要買窗簾噃……</span></div>
+    <div class="line"><span class="mandarin">客厅用射灯，饭厅用吊灯，啲就够晒光猛啦。係唔，唔好唔记得，我哋仲要买窗帘啦……</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">旁白</div>
+    <div class="line"><span class="pinyin">Houjoih, Ji-leuhng ge báhbā haih jóngsāu sífú, yáhsih seiuháh waahkjé dihnhai waaijhó, kéuih sāam leuhng háh sāugeuk jauh jingfān hóu. Sóyih Ji-leuhng ge sán tik mháichéng yahn jóngsāu. Léhng fuhji daaicīhaih dí chéuihjái a, lóhsT pāi a, kim a, dihnyun a, dén g dāngdāng ge yéh, júngguhung yātgo láihbaai jauh gáaujihmsaaai la. Ji-leuhng deui báhbā wah: Báhbā, néih dí gūngfú gwóyinh hóu yéh!</span></div>
+    <div class="line"><span class="cantonese">好在，志良的爸爸係裝修師傅，有時水喉或者電型壞咗，佢三兩下手腳就整返好。所以志良呢新屋唔使請人裝修。兩父子帶齊啲鉗仔呀、螺絲批呀、鉗呀、電鑽呀、釘呀等等啲噃，總共一個禮拜就搞掂晒啦。志良對爸爸話：爸爸，你啲工夫果然好呀！</span></div>
+    <div class="line"><span class="mandarin">好在，志良的爸爸是装修师傅，有时水喉或者电型坏了，佢三两下手脚就整返好。所以志良呢新屋唔使请人装修。两父子带齐啲钳仔呀、螺丝批呀、钳呀、电钻呀、钉呀等等啲噃，总共一个礼拜就搞掂晒啦。志良对爸爸话：爸爸，你啲工夫果然好呀！</span></div>
+  </div>
+
+  <div class="dialogue-block">
+    <div class="speaker">老陳</div>
+    <div class="line"><span class="pinyin">Hāaih! Ngōh jouh nihóhng yátlouh jouhjó géisahp nihn la, yáh mé gúngchihnh meih jouhgwó ā! Bunsān houhják jouhgo, báangaanfòng yihk joughwo. Gónghöi yauh góng ā, Héungóngdéi jánhlah pānhfú yúnsyúh ge. Yáuohchínloú ge tik yáh yih sāam chin ché kam daaih, linh chűngleuhngfōng dou pousai wānhsekh. Kúhngyāhn jauh séhngdau yàhn bikmáaih jyuh yātgān saifong, bīkgihpdou bātdākliuh.</span></div>
+    <div class="line"><span class="cantonese">唉！我做呢行一路做咗幾十年呀，有咩工程未做過吖！半山豪宅做過，板間房亦做過。講開又講吖，香港地真係貧富懸殊嘅。有錢佬嘅屋有二三千尺咁大，連沖涼房都鋪晒雲石。窮人就成啲人逼埋一間細房，逼狹到不得了。</span></div>
+    <div class="line"><span class="mandarin">唉！我做呢行一路做咗几十年呀，有咩工程未做过呀！半山豪宅做过，板间房亦做过。讲开又讲呀，香港地真系贫富悬殊嘅。有钱佬的屋有二三千尺咁大，连冲凉房都铺晒云石。穷人就成啲人逼埋一间细房，逼狭到不得了。</span></div>
   </div>
 
 </div>
+
+<!-- ======================== SECTION 2: 生詞 ======================== -->
 <div class="section" id="vocab">
   <div class="section-title">2.1 生詞</div>
   <div class="audio-bar"><label>🔊 生詞朗讀：</label><audio controls preload="none"><source src="../audio/Lesson01_2.mp3" type="audio/mpeg"></audio></div>
@@ -155,141 +247,240 @@ footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8e
     <tr><th>詞語</th><th>粵拼</th><th>釋義</th></tr>
     <tr><td class="word">居住環境</td><td class="jyutping">geuijiyuṳṁ wàahngíng</td><td class="meaning">居住條件</td></tr>
     <tr><td class="word">屋邨</td><td class="jyutping">ūkchyūn / ngūkchyūn</td><td class="meaning">住宅小區，尤指政府公屋</td></tr>
+    <tr><td class="word">屋苑</td><td class="jyutping">ūkyūn / ngūkyūn</td><td class="meaning">住宅小區，尤指私人樓宇</td></tr>
     <tr><td class="word">閎落</td><td class="jyutping">futlohk</td><td class="meaning">寬敞</td></tr>
     <tr><td class="word">撇開</td><td class="jyutping">bünhoi</td><td class="meaning">搬出去</td></tr>
     <tr><td class="word">邊狹</td><td class="jyutping">bíkgihp</td><td class="meaning">狹小，擠</td></tr>
     <tr><td class="word">招呼</td><td class="jyutping">jīufū</td><td class="meaning">招待，接待</td></tr>
-    <tr><td class="word">呷片</td><td class="jyutping">kāatpīn</td><td class="meaning">名片</td></tr>
+    <tr><td class="word">咭片</td><td class="jyutping">kāatpīn</td><td class="meaning">名片</td></tr>
     <tr><td class="word">開揚</td><td class="jyutping">hōiyèuhng</td><td class="meaning">視線無阻擋，敞亮</td></tr>
-    <tr><td class="word">睡房</td><td class="jyutping">seuīhfōng</td><td class="meaning">臥室</td></tr>
+    <tr><td class="word">睡房</td><td class="jyutping">seuihfōng</td><td class="meaning">臥室</td></tr>
     <tr><td class="word">沖涼房</td><td class="jyutping">chūnglèuhngfōng</td><td class="meaning">浴室</td></tr>
-    <tr><td class="word">業主</td><td class="jyutping">yihp jyǖ</td><td class="meaning">房主；房東</td></tr>
-    <tr><td class="word">放盤</td><td class="jyutping">fongpǒn</td><td class="meaning">把物業放到市場上出售或出租</td></tr>
-    <tr><td class="word">油站</td><td class="jyutping">yàu hjaahm</td><td class="meaning">加油站</td></tr>
-    <tr><td class="word">車房</td><td class="jyutping">chefohng</td><td class="meaning">汽車維修站</td></tr>
+    <tr><td class="word">業主</td><td class="jyutping">yihpjyû</td><td class="meaning">房主；房東</td></tr>
+    <tr><td class="word">放盤</td><td class="jyutping">fongpûn</td><td class="meaning">把物業放到市場上出售或出租</td></tr>
+    <tr><td class="word">油站</td><td class="jyutping">yàuhjaahm</td><td class="meaning">加油站</td></tr>
+    <tr><td class="word">車房</td><td class="jyutping">chěfôhng</td><td class="meaning">汽車維修站</td></tr>
     <tr><td class="word">粒</td><td class="jyutping">lip</td><td class="meaning">升降機，電梯</td></tr>
-    <tr><td class="word">跟住</td><td class="jyutping">ganjyuh</td><td class="meaning">接着，然後</td></tr>
+    <tr><td class="word">跟住</td><td class="jyutping">gánjyuh</td><td class="meaning">接着，然後</td></tr>
     <tr><td class="word">另計</td><td class="jyutping">lihnggai</td><td class="meaning">另算</td></tr>
-    <tr><td class="word">落訂</td><td class="jyutping">lohkdehng</td><td class="meaning">付訂金</td></tr>
+    <tr><td class="word">落訂</td><td class="jyutping">lohkdhehng</td><td class="meaning">付訂金</td></tr>
     <tr><td class="word">鎖匙</td><td class="jyutping">sósih</td><td class="meaning">鑰匙</td></tr>
     <tr><td class="word">夾手夾腳</td><td class="jyutping">gaapsáu gaapgeuk</td><td class="meaning">一起動手</td></tr>
     <tr><td class="word">堵</td><td class="jyutping">buhng</td><td class="meaning">牆的量詞</td></tr>
-    <tr><td class="word">啲</td><td class="jyutping">nihm</td><td class="meaning">貼</td></tr>
-    <tr><td class="word">鬆灰水</td><td class="jyutping">yau h fuísúi</td><td class="meaning">刷牆</td></tr>
-    <tr><td class="word">士多房</td><td class="jyutping">sihdofohng</td><td class="meaning">儲物間</td></tr>
+    <tr><td class="word">貼</td><td class="jyutping">nihm</td><td class="meaning">貼</td></tr>
+    <tr><td class="word">鬆灰水</td><td class="jyutping">yàuh füisúi</td><td class="meaning">刷牆</td></tr>
+    <tr><td class="word">鬆</td><td class="jyutping">yàuh</td><td class="meaning">刷，塗</td></tr>
+    <tr><td class="word">士多房</td><td class="jyutping">sihdôfóng</td><td class="meaning">儲物間</td></tr>
     <tr><td class="word">間開</td><td class="jyutping">gaanhoi</td><td class="meaning">隔開</td></tr>
-    <tr><td class="word">光猛</td><td class="jyutping">gwohngmaa hng</td><td class="meaning">亮堂</td></tr>
-    <tr><td class="word">講開又講</td><td class="jyutping">gonghoi yau h gong</td><td class="meaning">說起來</td></tr>
-    <tr><td class="word">板間房</td><td class="jyutping">baa ngaanh fong</td><td class="meaning">房中房</td></tr>
-    <tr><td class="word">搬屋</td><td class="jyutping">bün`ük / būngūk</td><td class="meaning">搬家</td></tr>
-    <tr><td class="word">幫手</td><td class="jyutping">bōngsáu</td><td class="meaning">幫忙；幫忙的人，幫手</td></tr>
-    <tr><td class="word">成資人</td><td class="jyutping">sēhngdau yāhn /</td><td class="meaning">一家子（人）</td></tr>
+    <tr><td class="word">光猛</td><td class="jyutping">gwongmäahng</td><td class="meaning">亮堂</td></tr>
+    <tr><td class="word">講開又講</td><td class="jyutping">gónghoi yauh góng</td><td class="meaning">說起來</td></tr>
+    <tr><td class="word">板間房</td><td class="jyutping">bàangaanfóng</td><td class="meaning">房中房</td></tr>
+    <tr><td class="word">搬屋</td><td class="jyutping">bün`ük / būnngük</td><td class="meaning">搬家</td></tr>
+    <tr><td class="word">幫手</td><td class="jyutping">bōngsáu</td><td class="meaning">幫忙；幫忙的人</td></tr>
+    <tr><td class="word">成資人</td><td class="jyutping">séhngdau yàhn / sihngdau yàhn</td><td class="meaning">一家子（人）</td></tr>
   </table>
 </div>
+
+<!-- ======================== SECTION 2.2: 難讀字詞 ======================== -->
 <div class="section" id="difficult">
   <div class="section-title">2.2 難讀字詞</div>
   <table class="vocab-table">
     <tr><th>字詞</th><th>粵拼</th></tr>
-    <tr><td class="word">chǐngfū</td><td class="jyutping">稱呼</td></tr>
-    <tr><td class="word">Baakgāai</td><td class="jyutping">百佳</td></tr>
-    <tr><td class="word">gáaikyut</td><td class="jyutping">解決</td></tr>
-    <tr><td class="word">chaak</td><td class="jyutping">拆</td></tr>
-    <tr><td class="word">chēunglim</td><td class="jyutping">窗簾</td></tr>
-    <tr><td class="word">hòng</td><td class="jyutping">行</td></tr>
-    <tr><td class="word">hòuhwāh</td><td class="jyutping">豪華</td></tr>
-    <tr><td class="word">pàhnfuyùhnsyùh</td><td class="jyutping">貧富懸殊</td></tr>
-    <tr><td class="word">kùhngyāhn</td><td class="jyutping">窮人</td></tr>
+    <tr><td class="word">稱呼</td><td class="jyutping">chīngfū</td></tr>
+    <tr><td class="word">百佳</td><td class="jyutping">Baakgāai</td></tr>
+    <tr><td class="word">解決</td><td class="jyutping">gáaikyut</td></tr>
+    <tr><td class="word">拆</td><td class="jyutping">chaak</td></tr>
+    <tr><td class="word">窗簾</td><td class="jyutping">chēunglim</td></tr>
+    <tr><td class="word">行</td><td class="jyutping">hòhng</td></tr>
+    <tr><td class="word">豪華</td><td class="jyutping">hòuhwāh</td></tr>
+    <tr><td class="word">貧富懸殊</td><td class="jyutping">pāhnfuyùhnsyùh</td></tr>
+    <tr><td class="word">窮人</td><td class="jyutping">kùhngyàhn</td></tr>
   </table>
 </div>
+
+<!-- ======================== SECTION 3: 附加詞彙 ======================== -->
 <div class="section" id="extra">
   <div class="section-title">3 附加詞彙</div>
   <div class="audio-bar"><label>🔊 附加詞彙：</label><audio controls preload="none"><source src="../audio/Lesson01_4.mp3" type="audio/mpeg"></audio></div>
+
   <h3 style="margin:20px 0 10px;color:#555;">3.1 家居與裝修</h3>
   <table class="vocab-table">
     <tr><th>詞語</th><th>粵拼</th></tr>
-    <tr><td class="word">地氈</td><td class="jyutping">deihǐn</td></tr>
+    <tr><td class="word">地氈</td><td class="jyutping">deihjīn</td></tr>
     <tr><td class="word">階梯</td><td class="jyutping">gāaijyūn</td></tr>
     <tr><td class="word">柚木地板</td><td class="jyutping">yáumuhk deihbāan</td></tr>
     <tr><td class="word">雲石</td><td class="jyutping">wāhnsehk</td></tr>
     <tr><td class="word">天台</td><td class="jyutping">tīntói</td></tr>
     <tr><td class="word">露台</td><td class="jyutping">louhtòih</td></tr>
-    <tr><td class="word">鋅盆</td><td class="jyutping">sīngpùhn</td></tr>
-    <tr><td class="word">花灑</td><td class="jyutping">fāsá</td></tr>
+    <tr><td class="word">鋅盆</td><td class="jyutping">sāngpùhn</td></tr>
+    <tr><td class="word">花灑</td><td class="jyutping">fā sā</td></tr>
     <tr><td class="word">浴缸</td><td class="jyutping">yuhkgōng</td></tr>
-    <tr><td class="word">企缸</td><td class="jyutping">kéihgōng</td></tr>
-    <tr><td class="word">水喉</td><td class="jyutping">séui’hàuh</td></tr>
+    <tr><td class="word">企缸</td><td class="jyutping">kēihgōng</td></tr>
+    <tr><td class="word">水喉</td><td class="jyutping">séui'hàuh</td></tr>
     <tr><td class="word">水龍頭</td><td class="jyutping">séuilùhngtàuh</td></tr>
-    <tr><td class="word">水掣</td><td class="jyutping">séuijai</td></tr>
-    <tr><td class="word">電掣</td><td class="jyutping">dihnjai</td></tr>
+    <tr><td class="word">水掣</td><td class="jyutping">séuijjai</td></tr>
+    <tr><td class="word">電掣</td><td class="jyutping">dihjjai</td></tr>
     <tr><td class="word">鋁窗</td><td class="jyutping">léuihchēung</td></tr>
     <tr><td class="word">鐵閘</td><td class="jyutping">titjaahp</td></tr>
     <tr><td class="word">玻璃</td><td class="jyutping">bōlěi</td></tr>
     <tr><td class="word">打通</td><td class="jyutping">dátūng</td></tr>
-    <tr><td class="word">漏水</td><td class="jyutping">lauhséui</td></tr>
+    <tr><td class="word">瀘水</td><td class="jyutping">lauhséui</td></tr>
     <tr><td class="word">罅</td><td class="jyutping">la</td></tr>
     <tr><td class="word">窿</td><td class="jyutping">lūng</td></tr>
     <tr><td class="word">烏煙瘴氣</td><td class="jyutping">wūyīnjeunghei</td></tr>
-    <tr><td class="word">執手尾</td><td class="jyutping">jāp sāuméih</td></tr>
+    <tr><td class="word">執手尾</td><td class="jyutping">jāp sóuméih</td></tr>
   </table>
+
   <h3 style="margin:20px 0 10px;color:#555;">3.2 傢俬與電器</h3>
   <table class="vocab-table">
     <tr><th>詞語</th><th>粵拼</th></tr>
     <tr><td class="word">梳化</td><td class="jyutping">sōfā</td></tr>
     <tr><td class="word">茶几</td><td class="jyutping">chàhgēi</td></tr>
-    <tr><td class="word">餐桌</td><td class="jyutping">chāantói</td></tr>
+    <tr><td class="word">餐枱</td><td class="jyutping">chāantói</td></tr>
     <tr><td class="word">凳</td><td class="jyutping">dang</td></tr>
     <tr><td class="word">挨拼椅</td><td class="jyutping">āipēngyi / ngāaipēngyi</td></tr>
     <tr><td class="word">挨拼凳</td><td class="jyutping">āipēngdang / ngāaipēngdang</td></tr>
     <tr><td class="word">吊櫃</td><td class="jyutping">diugwaih</td></tr>
-    <tr><td class="word">碌架牀</td><td class="jyutping">lūkgaachōhng</td></tr>
-    <tr><td class="word">梳妝枱</td><td class="jyutping">sōjōngtóí</td></tr>
+    <tr><td class="word">碌架牀</td><td class="jyutping">lūkghàhōngng</td></tr>
+    <tr><td class="word">梳妝枱</td><td class="jyutping">sōjōngtói</td></tr>
     <tr><td class="word">牀頭櫃</td><td class="jyutping">chōhngtàuhgwaih</td></tr>
-    <tr><td class="word">糞桶</td><td class="jyutping">gwaihtūng</td></tr>
-    <tr><td class="word">鉸</td><td class="jyutping">geng</td></tr>
-    <tr><td class="word">咕順</td><td class="jyutping">kūsēun 熱水爐 yihtséuilōuh</td></tr>
-    <tr><td class="word">鏡架</td><td class="jyutping">genggá 抽氣扇 chāuheisin</td></tr>
-    <tr><td class="word">花樽</td><td class="jyutping">fājēun 電磁爐 dihnhchihlōuh</td></tr>
-    <tr><td class="word">座地燈</td><td class="jyutping">johdeihdāng 微波爐 méihbōlōuh</td></tr>
-    <tr><td class="word">座枱燈</td><td class="jyutping">johtóidāng 石油氣爐 sehkyàuhhei lōuh</td></tr>
-    <tr><td class="word">雪櫃</td><td class="jyutping">syutgwaih 煮食爐 jyúsihklōuh</td></tr>
-    <tr><td class="word">風筒</td><td class="jyutping">fūngtóng 拖板 tōbán</td></tr>
-    <tr><td class="word">風扇</td><td class="jyutping">fūngsin 插座 chaapjoh / chaapjó</td></tr>
-    <tr><td class="word">抽濕機</td><td class="jyutping">chāusāpgēi 插頭 chaaptāuh / chaaptáu</td></tr>
-    <tr><td class="word">吸塵機</td><td class="jyutping">kāpchāhngēi</td></tr>
+    <tr><td class="word">櫃桶</td><td class="jyutping">gwa ihtūng</td></tr>
+    <tr><td class="word">鉈</td><td class="jyutping">geng</td></tr>
+    <tr><td class="word">咕順</td><td class="jyutping">kūséun</td><td class="meaning">靠墊</td></tr>
+    <tr><td class="word">鏡架</td><td class="jyutping">genggá</td><td class="meaning">鏡框</td></tr>
+    <tr><td class="word">花樽</td><td class="jyutping">fājēun</td><td class="meaning">花瓶</td></tr>
+    <tr><td class="word">座地燈</td><td class="jyutping">johdeihdāng</td><td class="meaning">落地燈</td></tr>
+    <tr><td class="word">座枱燈</td><td class="jyutping">johtóidāng</td><td class="meaning">枱燈</td></tr>
+    <tr><td class="word">雪櫃</td><td class="jyutping">syutgwaih</td><td class="meaning">冰箱</td></tr>
+    <tr><td class="word">風筒</td><td class="jyutping">fīngtóng</td><td class="meaning">電吹風</td></tr>
+    <tr><td class="word">風扇</td><td class="jyutping">fīngsin</td><td class="meaning">電扇</td></tr>
+    <tr><td class="word">抽濕機</td><td class="jyutping">chāusâpgēi</td><td class="meaning">除湿机</td></tr>
+    <tr><td class="word">吸塵機</td><td class="jyutping">kâpchâhngēi</td></tr>
+    <tr><td class="word">熱水爐</td><td class="jyutping">yihtséuilóuh</td><td class="meaning">電熱水器</td></tr>
+    <tr><td class="word">抽氣扇</td><td class="jyutping">chāuheisin</td><td class="meaning">排气扇</td></tr>
+    <tr><td class="word">電磁爐</td><td class="jyutping">dihnychilóuh</td><td class="meaning">电磁炉</td></tr>
+    <tr><td class="word">微波爐</td><td class="jyutping">méihbóilóuh</td><td class="meaning">微波炉</td></tr>
+    <tr><td class="word">石油氣爐</td><td class="jyutping">sehkyàuhhei lóuh</td><td class="meaning">煤气炉</td></tr>
+    <tr><td class="word">煮食爐</td><td class="jyutping">jyúsihklóuh</td><td class="meaning">炉子</td></tr>
+    <tr><td class="word">拖板</td><td class="jyutping">tăbaan</td><td class="meaning">接线板</td></tr>
+    <tr><td class="word">插座</td><td class="jyutping">chaapjoh / chaapjó</td><td class="meaning">插座</td></tr>
+    <tr><td class="word">插頭</td><td class="jyutping">chaaptáuh / chaaptáu</td><td class="meaning">插头</td></tr>
   </table>
+
   <h3 style="margin:20px 0 10px;color:#555;">3.3 工具及其使用</h3>
   <table class="vocab-table">
-    <tr><th>詞語</th><th>粵拼</th></tr>
-    <tr><td class="word">鉗</td><td class="jyutping">kím 鉗 kihm</td></tr>
-    <tr><td class="word">刨</td><td class="jyutping">páau 刨 pàauh</td></tr>
-    <tr><td class="word">釘</td><td class="jyutping">dēng 釘 dēng</td></tr>
-    <tr><td class="word">鑿</td><td class="jyutping">jók 鑿 johk</td></tr>
-    <tr><td class="word">鋸</td><td class="jyutping">geu 鋸 geu</td></tr>
-    <tr><td class="word">夾</td><td class="jyutping">gáap / gip 夾 gaahp / gihp</td></tr>
-    <tr><td class="word">鑷</td><td class="jyutping">jyun 鑷 jyun</td></tr>
-    <tr><td class="word">刀</td><td class="jyutping">dǒu 鍜 gaai</td></tr>
-    <tr><td class="word">錘</td><td class="jyutping">chéui 枕 dáml / dahp</td></tr>
-    <tr><td class="word">士巴拿</td><td class="jyutping">sihbalá 擰 ning / nihng</td></tr>
-    <tr><td class="word">螺絲批</td><td class="jyutping">lohsi'pái 擰 ning / nihng</td></tr>
+    <tr><th>工具名</th><th>粵拼</th><th>對應的動詞</th></tr>
+    <tr><td class="word">鉗</td><td class="jyutping">kím</td><td class="word">鉗</td><td class="jyutping">kihmk</td></tr>
+    <tr><td class="word">刨</td><td class="jyutping">páau</td><td class="word">刨</td><td class="jyutping">pàauh</td></tr>
+    <tr><td class="word">釘</td><td class="jyutping">dēng</td><td class="word">釘</td><td class="jyutping">dēng</td></tr>
+    <tr><td class="word">鑿</td><td class="jyutping">jók</td><td class="word">鑿</td><td class="jyutping">johk</td></tr>
+    <tr><td class="word">鋸</td><td class="jyutping">geu</td><td class="word">鋸</td><td class="jyutping">geu</td></tr>
+    <tr><td class="word">夾</td><td class="jyutping">gáap / gip</td><td class="word">夾</td><td class="jyutping">gaahp / gihp</td></tr>
+    <tr><td class="word">鑽</td><td class="jyutping">jyun</td><td class="word">鑽</td><td class="jyutping">jyun</td></tr>
+    <tr><td class="word">刀</td><td class="jyutping">dǒu</td><td class="word">斲</td><td class="jyutping">gaai</td></tr>
+    <tr><td class="word">錘</td><td class="jyutping">chéui</td><td class="word">枕</td><td class="jyutping">dàm / dahp</td></tr>
+    <tr><td class="word">士巴拿</td><td class="jyutping">sihbalá</td><td class="word">擰</td><td class="jyutping">níng / nihng</td></tr>
+    <tr><td class="word">螺絲批</td><td class="jyutping">lōhslīpāi</td><td class="word">擰</td><td class="jyutping">níng / nihng</td></tr>
+  </table>
+  <p style="color:#888;font-size:0.9em;margin-top:10px;">註：粵語中的工具名不帶"子"字。另外很多這類名詞及其對應的動詞字面上是一樣的，只是聲調或有不同。</p>
+</div>
+
+<!-- ======================== SECTION 4: 語音練習 ======================== -->
+<div class="section" id="phonetic">
+  <div class="section-title">4 語音練習：粵普聲母相異字例</div>
+  <div class="audio-bar"><label>🔊 語音練習：</label><audio controls preload="none"><source src="../audio/Lesson01_3.mp3" type="audio/mpeg"></audio></div>
+
+  <h3 style="margin:20px 0 10px;color:#555;">4.1 d — t（粵→普）</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>貸</td><td>taai</td><td>借貸</td><td>je taai</td></tr>
+    <tr><td>提</td><td>tàih</td><td>提防</td><td>tàihfōng</td></tr>
+    <tr><td>淡</td><td>táahm</td><td>口淡淡</td><td>háotáahmtáahm</td></tr>
+    <tr><td>禱</td><td>tóu</td><td>禱告</td><td>tóugou</td></tr>
+    <tr><td>斷</td><td>tyúhn</td><td>斷裂</td><td>tyúhniht</td></tr>
+    <tr><td>盾</td><td>téuhn</td><td>矛盾</td><td>máauhtéuhn</td></tr>
+    <tr><td>怠</td><td>tóih</td><td>怠慢</td><td>tóihmaahn</td></tr>
+    <tr><td>殆</td><td>tóih</td><td>危殆</td><td>ngâihtóih</td></tr>
+    <tr><td>肚</td><td>tóuh</td><td>肚餓</td><td>tóuhngoh</td></tr>
+    <tr><td>舵</td><td>tòh</td><td>舵手</td><td>tòhsáu</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 10px;color:#555;">4.2 t — d（普→粵）</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>踏</td><td>daahp</td><td>踏腳石</td><td>daahpgeuksehk</td></tr>
+    <tr><td>特</td><td>dahk</td><td>特殊</td><td>dahksyih</td></tr>
+    <tr><td>凸</td><td>daht</td><td>凹凸</td><td>nāpdahk</td></tr>
+    <tr><td>突</td><td>daht</td><td>突襲</td><td>dahtjaahp</td></tr>
+    <tr><td>彈</td><td>daahn</td><td>彈性</td><td>daahnsing</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 10px;color:#555;">4.3 p — b（粵→普）</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>葩</td><td>bā</td><td>奇葩</td><td>kèihbā</td></tr>
+    <tr><td>品</td><td>bán</td><td>食品</td><td>sihkbán</td></tr>
+    <tr><td>坡</td><td>bō</td><td>山坡</td><td>sāanbō</td></tr>
+    <tr><td>僕</td><td>buhk</td><td>公僕</td><td>gūngbuhk</td></tr>
+    <tr><td>瀑</td><td>buhk</td><td>瀑布</td><td>buhkbou</td></tr>
+    <tr><td>胖</td><td>buhn</td><td>肥胖</td><td>fèihbuhn</td></tr>
+    <tr><td>叛</td><td>buhn</td><td>背叛</td><td>buibuhn</td></tr>
+    <tr><td>乒</td><td>bīng</td><td>乒乓波</td><td>bīngbāmbō</td></tr>
+    <tr><td>畔</td><td>buhn</td><td>湖畔</td><td>wùhbuhn</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 10px;color:#555;">4.4 b — p（普→粵）</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>瀕</td><td>pàhn</td><td>瀕臨</td><td>pàhnlàhm</td></tr>
+    <tr><td>鄙</td><td>péi</td><td>卑鄙</td><td>bēipéi</td></tr>
+    <tr><td>抱</td><td>póuh</td><td>擁抱</td><td>yúngpóuh</td></tr>
+    <tr><td>蚌</td><td>póhng</td><td>鷸蚌相爭</td><td>wahtpóhngsēungjiāng</td></tr>
+    <tr><td>遍</td><td>pin</td><td>普遍</td><td>póupin</td></tr>
+    <tr><td>豹</td><td>paau</td><td>花豹</td><td>fāpaau</td></tr>
+    <tr><td>刨</td><td>páau</td><td>鬚刨</td><td>sōupáau</td></tr>
+    <tr><td>撥</td><td>put</td><td>撥扇</td><td>putsin</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 10px;color:#555;">4.5 m — b（粵→普）</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>秘</td><td>bei</td><td>秘撈</td><td>bei1lōu</td></tr>
+    <tr><td>泌</td><td>bei</td><td>內分泌</td><td>noi1fānbei</td></tr>
+  </table>
+
+  <h3 style="margin:20px 0 10px;color:#555;">4.6 b — m（普→粵）</h3>
+  <table class="vocab-table phonetic-table">
+    <tr><td>擘</td><td>maak</td><td>擘大口得個窿</td><td>maakdaihauh dāk go lūng</td></tr>
+    <tr><td>剝</td><td>mōk</td><td>剝皮</td><td>mōkpeih</td></tr>
   </table>
 </div>
+
+<!-- ======================== SECTION 5: 情景說話練習 ======================== -->
 <div class="section" id="scenario">
   <div class="section-title">5 情景說話練習</div>
   <div class="audio-bar"><label>🔊 情景對話：</label><audio controls preload="none"><source src="../audio/Lesson01_5.mp3" type="audio/mpeg"></audio></div>
+
   <div class="scenario-desc">
-    郭先生同郭太太想搬屋。佢哋去一間地產公司同經紀周小姐傾租樓嘅事。郭生同郭太問到各區樓嘅租金同居住環境，周小姐就一一解答佢哋嘅問題。請三位同學分別扮演呢三個角色，進行對話。
-  </div>
-  <div class="dialogue-block">
-    <div class="speaker">郭先生</div>
-    <div class="line"><span class="cantonese">我想租間兩房一廳嘅單位，預算三千蚊一個月，可以嗎？</span></div>
+    <strong>1.</strong> 四個同學一組，分成正方同反方辯論"買樓同租樓嘅利弊"。
   </div>
 
-  <div class="dialogue-block">
-    <div class="speaker">周小姐</div>
-    <div class="line"><span class="cantonese">當然可以！我幫你搵下。你呢個預算可以租到不錯嘅地方。</span></div>
+  <div class="scenario-desc">
+    <strong>2.</strong> 郭先生同郭太太想搵屋。佢哋去一間地產公司同經紀周小姐傾租樓嘅事。郭生同郭太問到各區樓嘅租金同居住環境，周小姐就一一解答佢哋嘅問題。請三位同學分別扮演呢三個角色，進行對話。
   </div>
 
+  <div class="scenario-desc">
+    <strong>3.</strong> 盧先生同太太打算將佢哋居屋租俾人，就請咗兩個師傅嚟裝修。佢帶師傅去居屋度，講俾佢哋聽要點樣裝修。嗰兩個師傅亦係睇啲意見。請四位同學根據以上情景進行對話。
+  </div>
+
+  <div class="scenario-desc">
+    <strong>4.</strong> 郭先生兩夫婦請咗裝修公司裝修新屋。兩個裝修師傅拖咗好耐都未搞掂，而且工夫做得麻麻哋。郭先生好唔高興，去同佢哋交涉，點知最後搞到幾乎咀交。請你扮演郭先生，向裝修公司投訴呢兩個師傅。你要講清楚成件事嘅經過，師傅進度做得唔好，同埋你希望公司點樣處理呢件事。
+  </div>
+
+  <div class="scenario-desc">
+    <strong>5.</strong> 請三位同學根據以下情景進行對話：郭先生兩夫婦一齊去買傢俬。傢俬鋪嘅售貨員招呼佢哋，同埋介紹各種傢俬同俾佢哋。
+  </div>
+
+  <div class="scenario-desc">
+    <strong>6.</strong> 請根據自己嘅親身經歷講吓香港存唔存在貧富懸殊嘅問題，再比較吓香港同中國大陸嘅貧富懸殊狀況。
+  </div>
 </div>
+
 <footer>粵語速成 中級教材 · 第1課 · Generated by Cantonese Course Builder</footer>
 </div>
 </body>
