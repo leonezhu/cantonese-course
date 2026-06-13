@@ -4,6 +4,5 @@
 
 ## 導航
 
-| 課次 | 主題 |
-|------|------|
-| [第1課](lessons/ch01.html) | 改善居住環境 |
+- [課程目錄](https://leonezhu.github.io/cantonese-course/)
+- [第1課 改善居住環境](https://leonezhu.github.io/cantonese-course/lessons/ch01.html)
