@@ -10,3 +10,4 @@
 - [第3課 閒話潮流服飾](https://leonezhu.github.io/cantonese-course/lessons/ch03.html)
 - [第4課 乘搭交通工具](https://leonezhu.github.io/cantonese-course/lessons/ch04.html)
 - [第5課 協助處理罪案](https://leonezhu.github.io/cantonese-course/lessons/ch05.html)
+- [第6課 參加文娛活動](https://leonezhu.github.io/cantonese-course/lessons/ch06.html)
