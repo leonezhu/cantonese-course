@@ -31,6 +31,9 @@ h1{ font-size:1.8em;text-align:center;margin:30px 0 10px; }
 .nav{ position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;padding:10px 0;z-index:100; }
 .nav a{ margin-right:15px;text-decoration:none;color:#666;font-size:0.9em; }
 .nav a:hover{ color:#c0392b; }
+
+#global-stop{ position:fixed;bottom:20px;right:20px;background:#c0392b;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:1.5em;cursor:pointer;z-index:9999;box-shadow:0 2px 10px rgba(0,0,0,0.3);display:none;align-items:center;justify-content:center; }
+#global-stop:hover{ background:#e74c3c; }
 footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8em; }
 .phonetic-table td{ padding:6px 10px;border-bottom:1px solid #eee; }
 .phonetic-table td:first-child{ font-weight:bold; }
@@ -588,16 +591,8 @@ footer{ text-align:center;margin-top:60px;padding:20px;color:#aaa;font-size:0.8e
 
 </div>
 
-<button id="global-stop" style="position:fixed;bottom:20px;right:20px;background:#c0392b;color:#fff;border:none;border-radius:50%;width:50px;height:50px;font-size:20px;cursor:pointer;z-index:9999;display:none;box-shadow:0 2px 8px rgba(0,0,0,0.2);">❚❚</button>
+<button id="global-stop" title="停止所有音頻">❚❚</button>
 
-<script>
-(function(){
-  var btn=document.getElementById('global-stop');
-  var audios=document.querySelectorAll('audio');
-  function update(){var p=0;audios.forEach(function(a){if(a.paused===false)p=1});btn.style.display=p?'block':'none'}
-  audios.forEach(function(a){a.addEventListener('play',update);a.addEventListener('pause',update)});
-  btn.addEventListener('click',function(){audios.forEach(function(a){a.pause()})})
-})();
-</script>
+<script>(function(){var audio=document.querySelectorAll('audio');var btn=document.getElementById('global-stop');function updateBtn(){var any=false;audio.forEach(function(a){if(!a.paused){any=true;}});btn.style.display=any?'flex':'none'}audio.forEach(function(a){a.addEventListener('play',updateBtn);a.addEventListener('pause',updateBtn);a.addEventListener('ended',updateBtn)});btn.addEventListener('click',function(){audio.forEach(function(a){a.pause()})});window.setInterval(updateBtn,500);updateBtn()})();</script>
 </body>
 </html>
